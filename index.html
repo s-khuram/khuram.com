@@ -1,593 +1,2070 @@
-<!-- index.html -->
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Khuram Sindhu | Data Engineer</title>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khuram Sindhu — Data Solution Architect | Lakehouse &amp; Streaming Systems</title>
+  <meta name="description" content="Architectural portfolio of Khuram Sindhu, Data Solution Architect specializing in AI/ML Data Infrastructure, Lakehouse (Snowflake, Databricks, Iceberg) & Real-Time Streaming (Kafka, Spark)." />
 
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/png" href="images/logo.png" />
+  <!-- Classical Monumental & Technical Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-  </head>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#090B10',
+            blueprint: '#0E121B',
+            vellum: '#131824',
+            vellumHover: '#181F2E',
+            gold: '#D4AF37',
+            goldLight: '#F3D98B',
+            ivory: '#F5F3EE',
+            slateText: '#94A3B8',
+            cyanPulse: '#38BDF8',
+            emeraldPulse: '#34D399',
+            amberPulse: '#FBBF24',
+          },
+          fontFamily: {
+            monument: ['"Cinzel"', 'Georgia', 'serif'],
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          boxShadow: {
+            architectural: '0 24px 64px -16px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(212, 175, 55, 0.16)',
+            goldHalo: '0 0 36px rgba(212, 175, 55, 0.22)',
+          }
+        }
+      }
+    };
+  </script>
 
-  <body>
-    <header>
-      <nav class="navbar">
-        <a href="#home" class="logo">
-          <img src="images/logo.png" alt="Khuram Sindhu Logo" />
-          <span>Khuram Sindhu</span>
+  <style>
+    :root {
+      --bg-obsidian: #090B10;
+      --bg-blueprint: #0E121B;
+      --bg-vellum: #131824;
+      --gold-primary: #D4AF37;
+      --gold-light: #F3D98B;
+      --cyan-pulse: #38BDF8;
+      --emerald-pulse: #34D399;
+      --ease-classical: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      background-color: var(--bg-obsidian);
+      color: #F5F3EE;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::selection {
+      background: rgba(212, 175, 55, 0.3);
+      color: #F5F3EE;
+    }
+
+    /* Architectural Drafting Grid Overlay */
+    .drafting-grid {
+      background-image:
+        linear-gradient(to right, rgba(212, 175, 55, 0.042) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(212, 175, 55, 0.042) 1px, transparent 1px),
+        linear-gradient(to right, rgba(56, 189, 248, 0.022) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(56, 189, 248, 0.022) 1px, transparent 1px);
+      background-size: 96px 96px, 96px 96px, 24px 24px, 24px 24px;
+    }
+
+    /* Classical Hairline Dividers */
+    .hairline-gold {
+      height: 1px;
+      background: linear-gradient(90deg, rgba(212, 175, 55, 0) 0%, rgba(212, 175, 55, 0.35) 50%, rgba(212, 175, 55, 0) 100%);
+    }
+
+    .vellum-card {
+      background-color: var(--bg-vellum);
+      border: 1px solid rgba(212, 175, 55, 0.22);
+      transition: transform 0.45s var(--ease-classical), border-color 0.35s ease, box-shadow 0.4s ease;
+    }
+
+    .vellum-card:hover {
+      border-color: rgba(243, 217, 139, 0.52);
+    }
+
+    /* Choreographed Scroll Reveal */
+    .reveal-node {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.85s var(--ease-classical), transform 0.85s var(--ease-classical);
+      will-change: opacity, transform;
+    }
+
+    .reveal-node.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 80ms; }
+    .delay-2 { transition-delay: 160ms; }
+    .delay-3 { transition-delay: 240ms; }
+    .delay-4 { transition-delay: 320ms; }
+
+    /* Live Backend SVG Conduit Flow Animations */
+    @keyframes conduitFlow {
+      to {
+        stroke-dashoffset: -32;
+      }
+    }
+
+    @keyframes pulseRing {
+      0% {
+        stroke-opacity: 0.7;
+        stroke-width: 1.5;
+      }
+      50% {
+        stroke-opacity: 0.15;
+        stroke-width: 4;
+      }
+      100% {
+        stroke-opacity: 0.7;
+        stroke-width: 1.5;
+      }
+    }
+
+    .svg-conduit {
+      stroke-dasharray: 8 8;
+      animation: conduitFlow 1.3s linear infinite;
+    }
+
+    .svg-conduit-fast {
+      stroke-dasharray: 8 8;
+      animation: conduitFlow 0.65s linear infinite;
+    }
+
+    .svg-pulse-ring {
+      animation: pulseRing 2.6s ease-in-out infinite;
+    }
+
+    .svg-node-group {
+      cursor: pointer;
+      transition: transform 0.25s var(--ease-classical);
+    }
+
+    .svg-node-group:hover .node-box {
+      stroke: #F3D98B;
+      stroke-width: 2;
+      fill: #192235;
+    }
+
+    /* Live Telemetry Beacon */
+    @keyframes telemetryPulse {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55);
+      }
+      50% {
+        box-shadow: 0 0 0 6px rgba(52, 211, 153, 0);
+      }
+    }
+
+    .telemetry-beacon {
+      animation: telemetryPulse 2.2s infinite ease-in-out;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090B10;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1C2436;
+      border-radius: 9999px;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #2A354F;
+    }
+  </style>
+</head>
+<body class="bg-obsidian text-ivory drafting-grid relative">
+
+  <!-- Toast Notification Banner -->
+  <div id="toast-banner" role="status" aria-live="polite"
+       class="fixed bottom-6 right-6 z-50 translate-y-24 opacity-0 pointer-events-none transition-all duration-500 ease-out">
+    <div class="bg-vellum border border-gold/50 rounded-xl px-5 py-3.5 shadow-architectural flex items-center gap-3 backdrop-blur-xl">
+      <span class="w-2 h-2 rounded-full bg-emeraldPulse telemetry-beacon"></span>
+      <span id="toast-text" class="font-mono text-xs text-ivory">Copied to clipboard</span>
+    </div>
+  </div>
+
+  <!-- ==================== FIXED ARCHITECTURAL HEADER ==================== -->
+  <header id="top-nav" class="fixed top-0 inset-x-0 z-40 transition-all duration-500 border-b border-transparent">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 h-20 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-3.5 group focus:outline-none">
+        <div class="w-10 h-10 rounded-xl bg-vellum border border-gold/45 flex items-center justify-center group-hover:border-goldLight transition-colors">
+          <span class="font-monument text-base font-bold tracking-widest text-goldLight">KS</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-monument text-sm sm:text-base font-semibold tracking-[0.14em] text-ivory leading-none">KHURAM SINDHU</span>
+          <span class="font-mono text-[10px] tracking-[0.2em] uppercase text-gold/85 mt-1">Data Solution Architect</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-7 text-xs font-mono uppercase tracking-[0.16em] text-slateText">
+        <a href="#engine" class="hover:text-goldLight transition-colors py-2">I. Live Engine</a>
+        <a href="#summary" class="hover:text-goldLight transition-colors py-2">II. Thesis</a>
+        <a href="#chronicle" class="hover:text-goldLight transition-colors py-2">III. Chronicle</a>
+        <a href="#matrix" class="hover:text-goldLight transition-colors py-2">IV. Stack Matrix</a>
+        <a href="#credentials" class="hover:text-goldLight transition-colors py-2">V. Credentials</a>
+      </nav>
+
+      <!-- Correspondence CTA & Mobile Menu Toggle -->
+      <div class="flex items-center gap-3">
+        <a href="#correspondence"
+           class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gold/15 hover:bg-gold text-goldLight hover:text-obsidian border border-gold/45 font-mono text-xs uppercase tracking-[0.15em] font-medium transition-all duration-300">
+          <span>Correspondence</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
         </a>
 
-        <input type="checkbox" id="menu-toggler" />
-        <label for="menu-toggler" class="hamburger">
-          <i class="fas fa-bars"></i>
-        </label>
+        <button id="mobile-toggle" type="button" aria-label="Toggle Navigation"
+                class="lg:hidden p-3 rounded-xl bg-vellum border border-gold/30 text-ivory hover:border-gold transition-colors">
+          <svg id="icon-burger" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h12" />
+          </svg>
+          <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
 
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#expertise">Expertise</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#employers">Employers</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+    <!-- Mobile Navigation Panel -->
+    <div id="mobile-drawer" class="lg:hidden hidden bg-blueprint/98 backdrop-blur-2xl border-b border-gold/25 px-6 py-6">
+      <div class="flex flex-col space-y-3.5 font-mono text-xs uppercase tracking-[0.16em]">
+        <a href="#engine" class="mobile-link py-2 border-b border-white/5 text-ivory hover:text-goldLight">I. Live Backend Architecture Engine</a>
+        <a href="#summary" class="mobile-link py-2 border-b border-white/5 text-ivory hover:text-goldLight">II. Architectural Thesis</a>
+        <a href="#chronicle" class="mobile-link py-2 border-b border-white/5 text-ivory hover:text-goldLight">III. Career Chronicle</a>
+        <a href="#matrix" class="mobile-link py-2 border-b border-white/5 text-ivory hover:text-goldLight">IV. Technical Matrix</a>
+        <a href="#credentials" class="mobile-link py-2 border-b border-white/5 text-ivory hover:text-goldLight">V. Certifications &amp; Education</a>
+        <a href="#correspondence" class="mobile-link mt-2 py-3 rounded-xl bg-gold text-obsidian text-center font-semibold">Initiate Correspondence</a>
+      </div>
+    </div>
+  </header>
 
-    <section class="hero" id="home">
-      <div class="hero-overlay"></div>
+  <main id="top" class="relative z-10">
 
-      <div class="hero-content">
-        <span class="badge">Senior Data Engineering Professional</span>
-        <div class="typing-wrapper">
-          <h1 class="typing-text">Scalable Intelligence</h1>
+    <!-- ==================== HERO SECTION WITH LIVE STREAMING TOPOLOGY ==================== -->
+    <section class="pt-28 pb-16 sm:pt-36 sm:pb-24 px-5 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+      <!-- Folio Top Metadata Bar -->
+      <div class="reveal-node flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-gold/25">
+        <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-vellum border border-gold/30">
+          <span class="w-2 h-2 rounded-full bg-emeraldPulse telemetry-beacon"></span>
+          <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-goldLight">OPEN TO REMOTE OPPORTUNITIES · SEATTLE, WA 98121</span>
         </div>
-        <p>
-          Building modern data platforms, real-time pipelines, cloud analytics,
-          and enterprise-grade data solutions.
-        </p>
+        <div class="font-mono text-xs text-slateText tracking-wider">
+          (509) 215-9866 <span class="text-gold mx-2">|</span> khuram.s.data@gmail.com
+        </div>
+      </div>
 
-        <div class="hero-buttons">
-          <a href="#services" class="btn primary-btn">View Services</a>
-          <a href="#contact" class="btn secondary-btn">Contact Me</a>
+      <!-- 12-Column Asymmetric Hero Layout -->
+      <div class="mt-10 sm:mt-14 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <!-- Left 7 Columns: Monumental Classical Identity -->
+        <div class="lg:col-span-7">
+          <p class="reveal-node delay-1 font-mono text-xs sm:text-sm uppercase tracking-[0.22em] text-gold mb-4">
+            Data Solution Architect · AI/ML Data Infrastructure
+          </p>
+          <h1 class="reveal-node delay-2 font-monument text-4xl sm:text-6xl xl:text-[4.2rem] font-bold tracking-[0.04em] leading-[1.08] text-ivory">
+            KHURAM SINDHU
+          </h1>
+          <p class="reveal-node delay-2 font-serif italic text-2xl sm:text-3xl lg:text-[2.1rem] text-goldLight mt-3 leading-snug">
+            Lakehouse &amp; Real-Time Streaming Systems at Billion-Event Scale.
+          </p>
+          <p class="reveal-node delay-3 text-base sm:text-lg text-slateText mt-6 max-w-2xl leading-[1.75]">
+            10+ years architecting regulated healthcare (<span class="text-ivory">FHIR, HL7, EHR, Claims</span>) and high-throughput FinTech lakehouses—delivering <span class="text-goldLight font-medium">$1.2M+ in annual Snowflake cost savings</span>, <span class="text-ivory font-medium">&lt;3s streaming latency</span>, and HIPAA/GDPR/CCPA governance by design.
+          </p>
+
+          <!-- Primary CTA Controls -->
+          <div class="reveal-node delay-4 mt-8 flex flex-wrap items-center gap-4">
+            <a href="#engine"
+               class="inline-flex items-center gap-3 px-7 py-4 rounded-xl bg-gold hover:bg-goldLight text-obsidian font-semibold text-sm tracking-wide transition-all duration-300 shadow-goldHalo">
+              <span>Inspect Live Backend Engine</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+
+            <button type="button" onclick="copyToClipboard('khuram.s.data@gmail.com', 'Copied: khuram.s.data@gmail.com')"
+                    class="inline-flex items-center gap-2.5 px-5 py-4 rounded-xl bg-vellum hover:bg-vellumHover text-ivory border border-gold/30 hover:border-gold font-mono text-xs transition-all duration-300">
+              <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+                <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+              </svg>
+              <span>khuram.s.data@gmail.com</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right 5 Columns: Live Animated Backend Telemetry Schematic -->
+        <div class="lg:col-span-5 reveal-node delay-3">
+          <div class="vellum-card rounded-3xl p-5 sm:p-6 shadow-architectural relative overflow-hidden">
+            <div class="flex items-center justify-between pb-3.5 mb-3 border-b border-gold/20">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emeraldPulse telemetry-beacon"></span>
+                <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-goldLight">ENGINE DAEMON // LIVE STREAM BUS</span>
+              </div>
+              <span class="font-mono text-[10px] text-cyanPulse">&lt;3s LATENCY · 5M+/HR</span>
+            </div>
+
+            <!-- Live Animated Backend Data Fabric Diagram -->
+            <svg viewBox="0 0 460 320" width="100%" height="auto" class="block select-none" role="img" aria-label="Live Animated Lakehouse and Streaming Backend Engine Diagram">
+              <defs>
+                <linearGradient id="busGold" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.35" />
+                  <stop offset="50%" stop-color="#F3D98B" stop-opacity="0.95" />
+                  <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.7" />
+                </linearGradient>
+                <filter id="engineGlow" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="3" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+
+              <!-- Architectural Frame -->
+              <rect x="12" y="12" width="436" height="296" rx="12" fill="none" stroke="rgba(212, 175, 55, 0.14)" stroke-width="1" />
+
+              <!-- Input Conduits -->
+              <path d="M 116 68 C 160 68, 160 160, 198 160" fill="none" stroke="url(#busGold)" stroke-width="1.6" class="svg-conduit" />
+              <path d="M 116 130 C 155 130, 160 160, 198 160" fill="none" stroke="url(#busGold)" stroke-width="1.6" class="svg-conduit" />
+              <path d="M 116 192 C 155 192, 160 160, 198 160" fill="none" stroke="url(#busGold)" stroke-width="1.6" class="svg-conduit" />
+              <path d="M 116 252 C 160 252, 160 160, 198 160" fill="none" stroke="url(#busGold)" stroke-width="1.6" class="svg-conduit" />
+
+              <!-- Output Conduits -->
+              <path d="M 294 160 C 328 160, 328 96, 352 96" fill="none" stroke="#38BDF8" stroke-opacity="0.6" stroke-width="1.6" class="svg-conduit" />
+              <path d="M 294 160 C 328 160, 328 160, 352 160" fill="none" stroke="#D4AF37" stroke-opacity="0.8" stroke-width="1.6" class="svg-conduit" />
+              <path d="M 294 160 C 328 160, 328 224, 352 224" fill="none" stroke="#34D399" stroke-opacity="0.7" stroke-width="1.6" class="svg-conduit" />
+
+              <!-- Live Flowing Packets -->
+              <circle r="3.2" fill="#F3D98B" filter="url(#engineGlow)">
+                <animateMotion dur="2.1s" repeatCount="indefinite" path="M 116 68 C 160 68, 160 160, 198 160" />
+              </circle>
+              <circle r="3.2" fill="#38BDF8" filter="url(#engineGlow)">
+                <animateMotion dur="1.9s" begin="0.4s" repeatCount="indefinite" path="M 116 130 C 155 130, 160 160, 198 160" />
+              </circle>
+              <circle r="3.2" fill="#F3D98B" filter="url(#engineGlow)">
+                <animateMotion dur="2.3s" begin="0.9s" repeatCount="indefinite" path="M 116 192 C 155 192, 160 160, 198 160" />
+              </circle>
+              <circle r="3.2" fill="#34D399" filter="url(#engineGlow)">
+                <animateMotion dur="2.0s" begin="1.3s" repeatCount="indefinite" path="M 116 252 C 160 252, 160 160, 198 160" />
+              </circle>
+
+              <circle r="3.2" fill="#38BDF8" filter="url(#engineGlow)">
+                <animateMotion dur="1.6s" repeatCount="indefinite" path="M 294 160 C 328 160, 328 96, 352 96" />
+              </circle>
+              <circle r="3.5" fill="#F3D98B" filter="url(#engineGlow)">
+                <animateMotion dur="1.4s" begin="0.3s" repeatCount="indefinite" path="M 294 160 C 328 160, 328 160, 352 160" />
+              </circle>
+              <circle r="3.2" fill="#34D399" filter="url(#engineGlow)">
+                <animateMotion dur="1.7s" begin="0.7s" repeatCount="indefinite" path="M 294 160 C 328 160, 328 224, 352 224" />
+              </circle>
+
+              <!-- Source Nodes -->
+              <g font-family="JetBrains Mono, monospace" font-size="9.5">
+                <rect x="26" y="48" width="90" height="40" rx="8" fill="#0E121B" stroke="rgba(212,175,55,0.45)" />
+                <text x="71" y="72" fill="#F5F3EE" text-anchor="middle">FHIR / HL7</text>
+
+                <rect x="26" y="110" width="90" height="40" rx="8" fill="#0E121B" stroke="rgba(212,175,55,0.45)" />
+                <text x="71" y="134" fill="#F5F3EE" text-anchor="middle">EHR / CLAIMS</text>
+
+                <rect x="26" y="172" width="90" height="40" rx="8" fill="#0E121B" stroke="rgba(212,175,55,0.45)" />
+                <text x="71" y="196" fill="#F5F3EE" text-anchor="middle">CDC STREAMS</text>
+
+                <rect x="26" y="232" width="90" height="40" rx="8" fill="#0E121B" stroke="rgba(212,175,55,0.45)" />
+                <text x="71" y="256" fill="#F5F3EE" text-anchor="middle">FINTECH TXN</text>
+              </g>
+
+              <!-- Central Core Hub -->
+              <g>
+                <rect x="194" y="96" width="104" height="128" rx="14" fill="none" stroke="#F3D98B" class="svg-pulse-ring" />
+                <rect x="198" y="100" width="96" height="120" rx="12" fill="#151C2C" stroke="#D4AF37" stroke-width="1.6" />
+                <text x="246" y="134" font-family="Cinzel, serif" font-size="10.5" font-weight="700" fill="#F3D98B" text-anchor="middle">KAFKA + SPARK</text>
+                <text x="246" y="154" font-family="JetBrains Mono, monospace" font-size="9" fill="#F5F3EE" text-anchor="middle">Medallion Core</text>
+                <line x1="214" y1="166" x2="278" y2="166" stroke="rgba(212,175,55,0.3)" />
+                <text x="246" y="184" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#34D399" text-anchor="middle">HIPAA / PHI MASK</text>
+                <text x="246" y="200" font-family="JetBrains Mono, monospace" font-size="8.5" fill="#94A3B8" text-anchor="middle">Delta · Iceberg</text>
+              </g>
+
+              <!-- Governed Output Nodes -->
+              <g font-family="JetBrains Mono, monospace" font-size="9.5">
+                <rect x="352" y="74" width="84" height="44" rx="8" fill="#0E121B" stroke="rgba(56,189,248,0.55)" />
+                <text x="394" y="94" fill="#38BDF8" text-anchor="middle">SNOWFLAKE</text>
+                <text x="394" y="108" fill="#94A3B8" font-size="8" text-anchor="middle">-$1.2M/YR</text>
+
+                <rect x="352" y="138" width="84" height="44" rx="8" fill="#0E121B" stroke="rgba(212,175,55,0.65)" />
+                <text x="394" y="158" fill="#F3D98B" text-anchor="middle">DATA MESH</text>
+                <text x="394" y="172" fill="#94A3B8" font-size="8" text-anchor="middle">300+ USERS</text>
+
+                <rect x="352" y="202" width="84" height="44" rx="8" fill="#0E121B" stroke="rgba(52,211,153,0.55)" />
+                <text x="394" y="222" fill="#34D399" text-anchor="middle">ML / RAG</text>
+                <text x="394" y="236" fill="#94A3B8" font-size="8" text-anchor="middle">VECTOR SEARCH</text>
+              </g>
+            </svg>
+
+            <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between font-mono text-[10px] text-slateText">
+              <span>SNOWPIPE · STREAMS · UNITY CATALOG</span>
+              <a href="#engine" class="text-goldLight hover:underline">OPEN BACKEND STUDIO →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Verified Executive KPI Strip -->
+      <div id="kpi-strip" class="reveal-node delay-4 mt-14 pt-10 border-t border-gold/25 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div class="vellum-card p-5 rounded-2xl">
+          <div class="font-monument text-2xl sm:text-3xl font-bold text-goldLight">
+            <span class="kpi-num" data-target="10" data-suffix="+">0</span>
+          </div>
+          <div class="font-mono text-[10px] uppercase tracking-[0.15em] text-slateText mt-1.5">Years Experience</div>
+        </div>
+
+        <div class="vellum-card p-5 rounded-2xl">
+          <div class="font-monument text-2xl sm:text-3xl font-bold text-emeraldPulse">
+            <span class="kpi-num" data-target="1.2" data-decimals="1" data-prefix="$" data-suffix="M+">0</span>
+          </div>
+          <div class="font-mono text-[10px] uppercase tracking-[0.15em] text-slateText mt-1.5">Annual Query Savings</div>
+        </div>
+
+        <div class="vellum-card p-5 rounded-2xl">
+          <div class="font-monument text-2xl sm:text-3xl font-bold text-cyanPulse">
+            <span class="kpi-num" data-target="3" data-prefix="<" data-suffix="s">0</span>
+          </div>
+          <div class="font-mono text-[10px] uppercase tracking-[0.15em] text-slateText mt-1.5">Streaming Latency</div>
+        </div>
+
+        <div class="vellum-card p-5 rounded-2xl">
+          <div class="font-monument text-2xl sm:text-3xl font-bold text-ivory">
+            <span class="kpi-num" data-target="250" data-suffix="+">0</span>
+          </div>
+          <div class="font-mono text-[10px] uppercase tracking-[0.15em] text-slateText mt-1.5">Legacy ETLs Migrated</div>
+        </div>
+
+        <div class="vellum-card p-5 rounded-2xl">
+          <div class="font-monument text-2xl sm:text-3xl font-bold text-ivory">
+            <span class="kpi-num" data-target="300" data-suffix="+">0</span>
+          </div>
+          <div class="font-mono text-[10px] uppercase tracking-[0.15em] text-slateText mt-1.5">Data Mesh Users</div>
+        </div>
+
+        <div class="vellum-card p-5 rounded-2xl">
+          <div class="font-monument text-2xl sm:text-3xl font-bold text-goldLight">
+            <span class="kpi-num" data-target="99" data-suffix="%">0</span>
+          </div>
+          <div class="font-mono text-[10px] uppercase tracking-[0.15em] text-slateText mt-1.5">Regulated SLA</div>
         </div>
       </div>
     </section>
 
-    <section class="about section" id="about">
-      <h2 class="about-title">About Me</h2>
-      <p class="section-text">
-        Delivering scalable data engineering and cloud solutions with 10+ years
-        of experience.
-      </p>
+    <div class="hairline-gold max-w-7xl mx-auto"></div>
 
-      <div class="about-box journey-box">
+    <!-- ==================== I. LIVE BACKEND ARCHITECTURE ENGINE STUDIO ==================== -->
+    <section id="engine" class="py-20 sm:py-28 px-5 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+      <div class="reveal-node flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
         <div>
-          <h3>My Journey</h3>
-          <p>
-            Data Solution Architect with 11+ years of experience designing
-            scalable multi-cloud data platforms across AWS, Azure, and GCP.
-            Specialized in real-time streaming, enterprise ETL pipelines, and
-            modern architectures including Data Mesh and Lakehouse.
-          </p>
-          <p>
-            Experienced in LLMOps, Data Observability, and GenAI-driven
-            workflows, delivering secure, high-performance, and scalable data
-            ecosystems for enterprise organizations. Proven track record of
-            optimizing platform performance, strengthening governance and
-            compliance, reducing operational costs, and accelerating business
-            insights.
-          </p>
-          <p>
-            Recognized for mentoring engineering teams, collaborating with
-            stakeholders, and leading cross-functional initiatives that align
-            data strategies with business objectives while driving digital
-            transformation and long-term enterprise growth.
-          </p>
+          <span class="font-mono text-xs uppercase tracking-[0.24em] text-gold">SECTION I // LIVE BACKEND ARCHITECTURE ENGINE</span>
+          <h2 class="font-monument text-3xl sm:text-4xl lg:text-5xl font-bold text-ivory mt-2.5 tracking-wide">
+            Production Systems &amp; Blueprints
+          </h2>
         </div>
+        <p class="text-sm sm:text-base text-slateText max-w-lg">
+          Select a production architecture, inject live workload states, and click any processing stage to inspect runtime telemetry, compliance controls, and live engine logs.
+        </p>
       </div>
 
-      <div class="stats-grid">
-        <div class="stat-card">
-          <i class="fas fa-cloud"></i>
-          <h3>10+</h3>
-          <p>Cloud Engineering</p>
+      <!-- 5 Flagship Project Blueprint Selectors -->
+      <div class="reveal-node grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-6" role="tablist" aria-label="Production Architecture Blueprints">
+        <button type="button" id="bp-tab-0" onclick="switchArchitecture(0)"
+                class="bp-tab text-left p-5 rounded-2xl bg-vellum border-2 border-gold shadow-goldHalo transition-all focus:outline-none">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-goldLight">BLUEPRINT 01 · LIVE</span>
+            <span class="w-2 h-2 rounded-full bg-emeraldPulse telemetry-beacon"></span>
+          </div>
+          <h3 class="font-serif text-xl font-semibold text-ivory mt-1.5 leading-snug">
+            Enterprise Lakehouse Migration
+          </h3>
+          <p class="font-mono text-[10px] text-slateText mt-2">Databricks · Delta · Iceberg · Snowflake</p>
+        </button>
+
+        <button type="button" id="bp-tab-1" onclick="switchArchitecture(1)"
+                class="bp-tab text-left p-5 rounded-2xl bg-blueprint/90 border border-gold/25 hover:border-gold/60 transition-all focus:outline-none">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-slateText">BLUEPRINT 02</span>
+            <span class="font-mono text-[10px] text-cyanPulse">&lt;3s CDC</span>
+          </div>
+          <h3 class="font-serif text-xl font-semibold text-ivory mt-1.5 leading-snug">
+            Zero-Downtime Source Migration
+          </h3>
+          <p class="font-mono text-[10px] text-slateText mt-2">Debezium · Kafka Connect · Spark · K8s</p>
+        </button>
+
+        <button type="button" id="bp-tab-2" onclick="switchArchitecture(2)"
+                class="bp-tab text-left p-5 rounded-2xl bg-blueprint/90 border border-gold/25 hover:border-gold/60 transition-all focus:outline-none">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-slateText">BLUEPRINT 03</span>
+            <span class="font-mono text-[10px] text-emeraldPulse">FINOPS</span>
+          </div>
+          <h3 class="font-serif text-xl font-semibold text-ivory mt-1.5 leading-snug">
+            Unified Cost Intelligence Pipeline
+          </h3>
+          <p class="font-mono text-[10px] text-slateText mt-2">AWS/GCP Billing · Airflow · BigQuery · dbt</p>
+        </button>
+
+        <button type="button" id="bp-tab-3" onclick="switchArchitecture(3)"
+                class="bp-tab text-left p-5 rounded-2xl bg-blueprint/90 border border-gold/25 hover:border-gold/60 transition-all focus:outline-none">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-slateText">BLUEPRINT 04</span>
+            <span class="font-mono text-[10px] text-goldLight">HIPAA / GDPR</span>
+          </div>
+          <h3 class="font-serif text-xl font-semibold text-ivory mt-1.5 leading-snug">
+            Multi-Tenant Data Governance Layer
+          </h3>
+          <p class="font-mono text-[10px] text-slateText mt-2">Snowflake · Lake Formation · Ranger · RBAC</p>
+        </button>
+
+        <button type="button" id="bp-tab-4" onclick="switchArchitecture(4)"
+                class="bp-tab text-left p-5 rounded-2xl bg-blueprint/90 border border-gold/25 hover:border-gold/60 transition-all focus:outline-none">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-slateText">BLUEPRINT 05</span>
+            <span class="font-mono text-[10px] text-cyanPulse">CDC + FINOPS</span>
+          </div>
+          <h3 class="font-serif text-xl font-semibold text-ivory mt-1.5 leading-snug">
+            Unified CDC, FinOps &amp; Zero-Trust Fabric
+          </h3>
+          <p class="font-mono text-[10px] text-slateText mt-2">Debezium · Kafka · BigQuery · Ranger · dbt</p>
+        </button>
+      </div>
+
+      <!-- Main Live Backend Engine Viewport -->
+      <div class="reveal-node vellum-card rounded-3xl p-5 sm:p-8 shadow-architectural">
+        <!-- Engine Control Header -->
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-gold/20">
+          <div>
+            <div class="flex items-center gap-2.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-emeraldPulse telemetry-beacon"></span>
+              <span id="bp-subtitle" class="font-mono text-xs uppercase tracking-[0.2em] text-goldLight">
+                SYSTEM ARCHITECTURE 01 // MEDALLION LAKEHOUSE CONSOLIDATION
+              </span>
+            </div>
+            <h4 id="bp-title" class="font-serif text-2xl sm:text-3xl font-semibold text-ivory mt-1">
+              Enterprise Lakehouse Migration (Bronze / Silver / Gold)
+            </h4>
+          </div>
+
+          <!-- Runtime Workload Simulator Buttons -->
+          <div class="flex flex-wrap items-center gap-2 bg-obsidian/95 p-1.5 rounded-xl border border-gold/25">
+            <span class="font-mono text-[10px] uppercase tracking-wider text-slateText px-2">ENGINE STATE:</span>
+            <button type="button" data-load-mode="normal" onclick="setTrafficMode('normal')"
+                    class="load-btn px-3 py-1.5 rounded-lg font-mono text-xs bg-gold text-obsidian font-semibold transition-all">
+              Nominal (5M/hr)
+            </button>
+            <button type="button" data-load-mode="peak" onclick="setTrafficMode('peak')"
+                    class="load-btn px-3 py-1.5 rounded-lg font-mono text-xs text-slateText hover:text-ivory transition-all">
+              Peak Burst (10TB/d)
+            </button>
+            <button type="button" data-load-mode="audit" onclick="setTrafficMode('audit')"
+                    class="load-btn px-3 py-1.5 rounded-lg font-mono text-xs text-slateText hover:text-ivory transition-all">
+              PHI / Schema Audit
+            </button>
+          </div>
         </div>
 
-        <div class="stat-card">
-          <i class="fas fa-database"></i>
-          <h3>11+</h3>
-          <p>Data Engineering</p>
+        <!-- Live Backend Runtime Telemetry Strip -->
+        <div class="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="px-4 py-3 rounded-xl bg-obsidian/90 border border-white/10">
+            <div class="font-mono text-[10px] uppercase tracking-wider text-slateText">INGESTION VELOCITY</div>
+            <div id="sim-throughput" class="font-mono text-sm sm:text-base font-semibold text-ivory mt-0.5">5.2M events/hr</div>
+          </div>
+          <div class="px-4 py-3 rounded-xl bg-obsidian/90 border border-white/10">
+            <div class="font-mono text-[10px] uppercase tracking-wider text-slateText">END-TO-END LATENCY</div>
+            <div id="sim-latency" class="font-mono text-sm sm:text-base font-semibold text-cyanPulse mt-0.5">2.4 sec p99</div>
+          </div>
+          <div class="px-4 py-3 rounded-xl bg-obsidian/90 border border-white/10">
+            <div class="font-mono text-[10px] uppercase tracking-wider text-slateText">COMPUTE &amp; STORAGE</div>
+            <div id="sim-workers" class="font-mono text-sm sm:text-base font-semibold text-goldLight mt-0.5">3 Warehouses → 1 Lakehouse</div>
+          </div>
+          <div class="px-4 py-3 rounded-xl bg-obsidian/90 border border-white/10">
+            <div class="font-mono text-[10px] uppercase tracking-wider text-slateText">GOVERNANCE &amp; SLA</div>
+            <div id="sim-sla" class="font-mono text-sm sm:text-base font-semibold text-emeraldPulse mt-0.5">HIPAA / GDPR · 99% SLA</div>
+          </div>
         </div>
 
-        <div class="stat-card">
-          <i class="fas fa-bolt"></i>
-          <h3>8+</h3>
-          <p>Spark & Streaming</p>
+        <!-- Interactive SVG Backend Architecture Diagram -->
+        <div class="mt-6 rounded-2xl bg-obsidian border border-gold/25 p-3 sm:p-5 overflow-x-auto">
+          <div class="min-w-[780px]">
+            <svg id="architecture-svg" viewBox="0 0 1120 420" width="100%" height="auto" class="block select-none"
+                 role="img" aria-label="Interactive Backend Data Architecture Schematic">
+              <!-- Rendered dynamically via JavaScript -->
+            </svg>
+          </div>
+          <div class="mt-3 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-slateText px-1">
+            <span>CLICK ANY ARCHITECTURAL STAGE TO INSPECT ENGINE TELEMETRY &amp; GOVERNANCE</span>
+            <span class="text-goldLight">● GOLD = INGESTION/STORAGE &nbsp;&nbsp; <span class="text-cyanPulse">● CYAN = STREAM/TRANSFORM</span> &nbsp;&nbsp; <span class="text-emeraldPulse">● EMERALD = GOVERNED SERVING</span></span>
+          </div>
         </div>
 
-        <div class="stat-card">
-          <i class="fas fa-snowflake"></i>
-          <h3>7+</h3>
-          <p>Snowflake & Databricks</p>
+        <!-- Two-Column Bottom Console: Selected Node Inspector + Live Backend Engine Event Stream -->
+        <div class="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <!-- Left 7 Cols: Node Engineering Spec Inspector -->
+          <div id="node-inspector-panel" class="lg:col-span-7 p-6 rounded-2xl bg-blueprint border border-gold/30 flex flex-col justify-between">
+            <!-- Populated dynamically -->
+          </div>
+
+          <!-- Right 5 Cols: Live Synchronized Backend Engine Stream Console -->
+          <div class="lg:col-span-5 p-5 rounded-2xl bg-obsidian border border-gold/25 flex flex-col justify-between">
+            <div class="flex items-center justify-between pb-3 border-b border-white/10">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emeraldPulse telemetry-beacon"></span>
+                <span class="font-mono text-[11px] uppercase tracking-[0.16em] text-goldLight">LIVE DAEMON STREAM</span>
+              </div>
+              <span id="daemon-pid" class="font-mono text-[10px] text-slateText">PID 4092 · RUNNING</span>
+            </div>
+
+            <div id="engine-log-stream" class="my-3 space-y-2 font-mono text-[11px] leading-relaxed h-44 overflow-hidden">
+              <!-- Live scrolling daemon events populated by JS -->
+            </div>
+
+            <div class="pt-2.5 border-t border-white/10 flex items-center justify-between font-mono text-[10px] text-slateText">
+              <span>OBSERVABILITY: MONTE CARLO + GREAT EXPECTATIONS</span>
+              <span class="text-emeraldPulse">0 ERRORS</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="expertise section" id="expertise">
-      <h2 class="about-title">Expertise</h2>
-      <p class="section-text">
-        Core technologies, platforms, and domain expertise in data engineering.
-      </p>
+    <div class="hairline-gold max-w-7xl mx-auto"></div>
 
-      <div class="expertise-grid">
-        <div class="expertise-card">
-          <i class="fas fa-code"></i>
-          <h3>Programming</h3>
-          <div class="tags">
-            <span>Python</span><span>SQL</span><span>Scala</span
-            ><span>Java</span><span>Golang</span>
-          </div>
-        </div>
-
-        <div class="expertise-card">
-          <i class="fas fa-diagram-project"></i>
-          <h3>Data Engineering</h3>
-          <div class="tags">
-            <span>ETL</span><span>ELT</span><span>dbt</span><span>Airflow</span
-            ><span>ADF</span><span>SSIS</span><span>Informatica</span
-            ><span> Apache NiFi</span>
-          </div>
-        </div>
-
-        <div class="expertise-card">
-          <i class="fas fa-database"></i>
-          <h3>Warehousing</h3>
-          <div class="tags">
-            <span>Snowflake</span><span>BigQuery</span><span>Redshift</span
-            ><span>Synapse</span><span>Data Vault 2.0</span
-            ><span>SQL Server</span>
-          </div>
-        </div>
-
-        <div class="expertise-card">
-          <i class="fas fa-bolt"></i>
-          <h3>Big Data</h3>
-          <div class="tags">
-            <span>Spark</span><span>Kafka</span><span>Flink</span
-            ><span>Beam</span><span>Delta Lake</span><span>Hadoop</span
-            ><span>LLMOps</span>
-          </div>
-        </div>
-
-        <div class="expertise-card">
-          <i class="fas fa-cloud"></i>
-          <h3>Cloud Platforms</h3>
-          <div class="tags">
-            <span>AWS</span><span>Azure</span><span>GCP</span
-            ><span>Databricks</span><span>Unity Catalog</span
-            ><span>Dataflow</span>
-          </div>
-        </div>
-
-        <div class="expertise-card">
-          <i class="fas fa-chart-line"></i>
-          <h3>BI & Analytics</h3>
-          <div class="tags">
-            <span>Power BI</span><span>Tableau</span><span>Looker</span
-            ><span>Dashboards</span><span>Looker</span><span>KPI Modeling</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="services section" id="services">
-      <h2 class="about-title">Services</h2>
-      <p class="section-text">
-        Scalable, cloud-native, and analytics-driven data solutions for modern
-        businesses.
-      </p>
-
-      <div class="cards-grid">
-        <div class="service-card">
-          <div class="icon-circle">
-            <img src="images/tents.png" alt="Data Pipeline Development" />
-          </div>
-          <h3>Data Pipeline Development</h3>
-          <p>
-            Reliable ETL/ELT pipelines for seamless data integration and
-            processing.
+    <!-- ==================== II. ARCHITECTURAL THESIS ==================== -->
+    <section id="summary" class="py-20 sm:py-28 px-5 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-4 reveal-node">
+          <span class="font-mono text-xs uppercase tracking-[0.24em] text-gold">SECTION II // ARCHITECTURAL THESIS</span>
+          <h2 class="font-monument text-3xl sm:text-4xl font-bold text-ivory mt-2.5 leading-tight">
+            Governed Systems Built to Outlast.
+          </h2>
+          <p class="font-serif italic text-xl text-goldLight mt-3">
+            Compliance by design, never retrofitted after the fact.
           </p>
-          <div class="service-popup">
-            <h4>Data Pipeline Development</h4>
-            <p>
-              Designing scalable ETL and data pipeline architectures that ensure
-              reliable, high-performance data integration across enterprise
-              systems.
-            </p>
-          </div>
         </div>
 
-        <div class="service-card">
-          <div class="icon-circle">
-            <img src="images/bags.png" alt="Cloud Data Engineering" />
-          </div>
-          <h3>Cloud Data Engineering</h3>
-          <p>
-            Scalable cloud architectures using AWS, Azure, Snowflake, and
-            Databricks.
-          </p>
-          <div class="service-popup">
-            <h4>Cloud Data Engineering</h4>
-            <p>
-              Building cloud-native data platforms on AWS, Azure, Snowflake, and
-              Databricks to enable scalable, secure, and modern analytics
-              solutions.
+        <div class="lg:col-span-8 reveal-node delay-1">
+          <div class="vellum-card p-7 sm:p-10 rounded-3xl shadow-architectural space-y-5 text-base sm:text-lg text-slateText leading-[1.8]">
+            <p class="text-ivory">
+              Data Solution Architect with <strong class="text-goldLight font-semibold">10+ years of experience</strong> architecting modern data warehouse and lakehouse platforms that process billions of events daily across regulated healthcare (<span class="text-ivory">FHIR, HL7, EHR, Claims</span>) and high-throughput FinTech environments.
             </p>
-          </div>
-        </div>
-
-        <div class="service-card">
-          <div class="icon-circle">
-            <img src="images/stoves.png" alt="Data Warehousing" />
-          </div>
-          <h3>Data Warehousing</h3>
-          <p>
-            High-performance warehouses and dashboards for business insights.
-          </p>
-          <div class="service-popup">
-            <h4>Data Warehousing</h4>
             <p>
-              Developing enterprise data warehouse and lakehouse solutions
-              optimized for high-performance analytics, reporting, and business
-              intelligence.
+              Delivered <strong class="text-emeraldPulse font-semibold">$1.2M+ in annual query cost savings</strong> through Snowflake redesign, cut streaming latency from <span class="text-ivory">10 minutes to under 1 minute</span> (and <span class="text-cyanPulse">&lt;3 seconds</span> on modern clinical streams), and migrated <span class="text-ivory">250+ legacy ETL workflows</span> into modular, production-grade pipelines with zero business disruption.
             </p>
-          </div>
-        </div>
-
-        <div class="service-card">
-          <div class="icon-circle">
-            <img src="images/backpacks.png" alt="Enterprise Solutions" />
-          </div>
-          <h3>Enterprise Solutions</h3>
-          <p>
-            Helping organizations unlock the full potential of enterprise data.
-          </p>
-          <div class="service-popup">
-            <h4>Enterprise Solutions</h4>
             <p>
-              Designing enterprise-scale data architectures that enable secure,
-              scalable, and analytics-driven transformation across modern cloud
-              platforms.
-            </p>
-          </div>
-        </div>
-
-        <div class="service-card">
-          <div class="icon-circle">
-            <img src="images/chair.png" alt="ETL Integration" />
-          </div>
-          <h3>ETL & Data Integration</h3>
-          <p>Automated workflows and efficient system integration.</p>
-          <div class="service-popup">
-            <h4>ETL & Data Integration</h4>
-            <p>
-              Building robust ETL and data integration solutions that streamline
-              complex workflows, improve reliability, and accelerate data
-              accessibility.
-            </p>
-          </div>
-        </div>
-
-        <div class="service-card">
-          <div class="icon-circle">
-            <img src="images/light.png" alt="Big Data Platforms" />
-          </div>
-          <h3>Big Data Platforms</h3>
-          <p>Real-time and batch data processing architectures.</p>
-          <div class="service-popup">
-            <h4>Big Data Platforms</h4>
-            <p>
-              Architecting high-performance big data platforms using modern
-              streaming and distributed processing technologies for real-time
-              analytics.
+              Architect of Medallion-pattern lakehouses (<span class="text-ivory">Snowflake, Databricks, Delta Lake, Apache Iceberg</span>) and real-time streaming systems (<span class="text-ivory">Kafka, Spark</span>) that consolidate siloed warehouses into governed, analytics-ready platforms serving <strong class="text-goldLight font-semibold">300+ self-service Data Mesh users</strong> under strict HIPAA, GDPR, and CCPA compliance.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="portfolio section" id="portfolio">
-      <h2 class="about-title">My Portfolio</h2>
-      <p class="section-text">
-        Explore enterprise-grade data engineering and analytics solutions.
-      </p>
+    <div class="hairline-gold max-w-7xl mx-auto"></div>
 
-      <div class="cards-grid">
-        <div class="portfolio-card">
-          <img src="images/camping-1.png" alt="Real-Time Pipelines" />
-          <h3>Enterprise Data Solutions</h3>
-          <p>
-            Building scalable cloud platforms for enterprise data
-            transformation.
-          </p>
-          <div class="portfolio-popup">
-            <h4>Enterprise Data Solutions</h4>
-            <p>
-              I specialize in designing and building enterprise-scale data
-              solutions that help organizations turn complex data into
-              meaningful business insights. With deep expertise in cloud
-              platforms, real-time streaming, modern data warehouses, and
-              scalable ETL architectures, I create reliable systems that support
-              growth, innovation, and faster decision-making.
-            </p>
+    <!-- ==================== III. CAREER CHRONICLE ==================== -->
+    <section id="chronicle" class="py-20 sm:py-28 px-5 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+      <div class="reveal-node flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-[0.24em] text-gold">SECTION III // CAREER CHRONICLE</span>
+          <h2 class="font-monument text-3xl sm:text-4xl lg:text-5xl font-bold text-ivory mt-2.5">
+            Professional Experience
+          </h2>
+        </div>
+
+        <!-- Domain Focus Filter -->
+        <div class="flex flex-wrap gap-2" role="group" aria-label="Filter Career Experience">
+          <button type="button" data-role-filter="all"
+                  class="role-filter-btn px-4 py-2 rounded-xl font-mono text-xs uppercase tracking-wider bg-gold text-obsidian font-semibold transition-all">
+            All Impact
+          </button>
+          <button type="button" data-role-filter="streaming"
+                  class="role-filter-btn px-4 py-2 rounded-xl font-mono text-xs uppercase tracking-wider bg-vellum border border-white/10 text-slateText hover:text-ivory transition-all">
+            Streaming &amp; Lakehouse
+          </button>
+          <button type="button" data-role-filter="finops"
+                  class="role-filter-btn px-4 py-2 rounded-xl font-mono text-xs uppercase tracking-wider bg-vellum border border-white/10 text-slateText hover:text-ivory transition-all">
+            FinOps &amp; Scale
+          </button>
+          <button type="button" data-role-filter="governance"
+                  class="role-filter-btn px-4 py-2 rounded-xl font-mono text-xs uppercase tracking-wider bg-vellum border border-white/10 text-slateText hover:text-ivory transition-all">
+            HIPAA &amp; Data Mesh
+          </button>
+        </div>
+      </div>
+
+      <!-- Vertical Timeline with Scroll-Driven Gold Conduit -->
+      <div id="chronicle-track" class="relative pl-7 sm:pl-12 space-y-12">
+        <div class="absolute left-2.5 sm:left-4 top-2 bottom-2 w-[2px] bg-white/10 rounded-full"></div>
+        <div id="chronicle-fill"
+             class="absolute left-2.5 sm:left-4 top-2 w-[2px] bg-gradient-to-b from-gold via-goldLight to-emeraldPulse rounded-full transition-all duration-150 ease-out"
+             style="height: 0%;"></div>
+
+        <!-- 01. SHIRLEY RYAN ABILITYLAB -->
+        <article class="reveal-node vellum-card relative rounded-3xl p-6 sm:p-10 shadow-architectural">
+          <div class="absolute -left-[25px] sm:-left-[41px] top-9 w-4 h-4 rounded-full bg-obsidian border-2 border-gold shadow-goldHalo"></div>
+
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/10">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="font-mono text-xs text-gold">01</span>
+                <h3 class="font-monument text-2xl sm:text-3xl font-bold text-ivory">Shirley Ryan AbilityLab</h3>
+                <span class="font-mono text-[11px] px-3 py-1 rounded-full bg-emeraldPulse/15 text-emeraldPulse border border-emeraldPulse/35">REMOTE / USA</span>
+              </div>
+              <p class="font-serif italic text-xl sm:text-2xl text-goldLight mt-1">Data Solution Architect</p>
+            </div>
+            <div class="font-mono text-xs sm:text-sm text-ivory bg-obsidian px-4 py-2 rounded-xl border border-gold/30 self-start md:self-center">
+              03/2023 – Present
+            </div>
+          </div>
+
+          <ul class="mt-6 space-y-3.5 text-sm sm:text-base text-ivory/90 leading-relaxed">
+            <li data-tags="streaming governance" class="chronicle-bullet flex items-start gap-3.5">
+              <span class="text-gold mt-1.5 text-xs">◆</span>
+              <span>Own end-to-end data architecture strategy unifying clinical, claims, and financial data across <strong class="text-goldLight font-semibold">15+ business domains</strong> into a single governed platform serving analytics, reporting, and ML teams.</span>
+            </li>
+            <li data-tags="streaming" class="chronicle-bullet flex items-start gap-3.5">
+              <span class="text-gold mt-1.5 text-xs">◆</span>
+              <span>Re-architected overnight batch workflows into <strong class="text-ivory font-semibold">Kafka- and Spark-based streaming pipelines</strong> processing <strong class="text-cyanPulse font-semibold">5M+ events/hour at sub-3-second latency</strong>, enabling live fraud detection, utilization monitoring, and clinical alerting.</span>
+            </li>
+            <li data-tags="finops streaming" class="chronicle-bullet flex items-start gap-3.5">
+              <span class="text-gold mt-1.5 text-xs">◆</span>
+              <span>Redesigned the Snowflake platform with CDC pipelines (<strong class="text-ivory font-semibold">Snowpipe, Streams, Tasks</strong>), <strong class="text-emeraldPulse font-semibold">cutting annual query costs by $1.2M</strong> while maintaining 100% SLA commitments.</span>
+            </li>
+            <li data-tags="governance" class="chronicle-bullet flex items-start gap-3.5">
+              <span class="text-gold mt-1.5 text-xs">◆</span>
+              <span>Standardized EHR, eligibility, and claims data to <strong class="text-ivory font-semibold">FHIR and HL7 interoperability standards</strong>, producing analytics-ready datasets consumed directly by clinical and operational teams.</span>
+            </li>
+            <li data-tags="governance" class="chronicle-bullet flex items-start gap-3.5">
+              <span class="text-gold mt-1.5 text-xs">◆</span>
+              <span>Designed and rolled out a <strong class="text-ivory font-semibold">PHI protection framework</strong> (encryption, dynamic data masking, RBAC/ABAC, audit logging), making all regulated pipelines <strong class="text-goldLight font-semibold">HIPAA, GDPR, and CCPA compliant</strong> by design.</span>
+            </li>
+            <li data-tags="governance" class="chronicle-bullet flex items-start gap-3.5">
+              <span class="text-gold mt-1.5 text-xs">◆</span>
+              <span>Drove enterprise-wide <strong class="text-ivory font-semibold">Data Mesh adoption</strong>, launching a self-service platform giving <strong class="text-goldLight font-semibold">300+ business users</strong> direct, governed access to near-real-time data.</span>
+            </li>
+            <li data-tags="finops" class="chronicle-bullet flex items-start gap-3.5">
+              <span class="text-gold mt-1.5 text-xs">◆</span>
+              <span>Sustained <strong class="text-emeraldPulse font-semibold">99% SLA adherence</strong> across critical regulated data flows while reducing multi-cloud infrastructure spend (<strong class="text-ivory font-semibold">AWS, Azure, GCP</strong>) and evaluating <strong class="text-ivory font-semibold">GenAI and RAG vector search</strong> over clinical and claims data.</span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- 02. DATAART -->
+        <article class="reveal-node vellum-card relative rounded-3xl p-6 sm:p-10 shadow-architectural">
+          <div class="absolute -left-[25px] sm:-left-[41px] top-9 w-4 h-4 rounded-full bg-obsidian border-2 border-gold/80"></div>
+
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/10">
+            <div>
+              <div class="flex items-center gap-3">
+                <span class="font-mono text-xs text-gold">02</span>
+                <h3 class="font-monument text-2xl sm:text-3xl font-bold text-ivory">DataArt</h3>
+                <span class="font-mono text-[11px] px-3 py-1 rounded-full bg-white/5 text-slateText border border-white/10">ONSITE / USA</span>
+              </div>
+              <p class="font-serif italic text-xl sm:text-2xl text-goldLight mt-1">Lead Data Engineer</p>
+            </div>
+            <div class="font-mono text-xs sm:text-sm text-ivory bg-obsidian px-4 py-2 rounded-xl border border-white/15 self-start md:self-center">
+              12/2019 – 02/2023
+            </div>
+          </div>
+
+          <ul class="mt-6 space-y-3.5 text-sm sm:text-base text-ivory/90 leading-relaxed">
+            <li data-tags="streaming finops" class="chronicle-bullet flex items-start gap-3.5">
+              <span class="text-gold mt-1.5 text-xs">◆</span>
+              <span>Designed and owned a hybrid cloud/on-prem platform handling <strong class="text-goldLight font-semibold">10TB+ daily data</strong>, powering transaction processing, risk analysis, forecasting, and regulatory reporting.</span>
+            </li>
+            <li data-tags="streaming" class="chronicle-bullet flex items-start gap-3.5">
+              <span class="text-gold mt-1.5 text-xs">◆</span>
+              <span>Rebuilt streaming architecture on <strong class="text-ivory font-semibold">Kafka and Kubernetes</strong>, <strong class="text-cyanPulse font-semibold">cutting latency from 10 minutes to under 1 minute</strong> and unblocking real-time financial reporting and risk operations.</span>
+            </li>
+            <li data-tags="finops streaming" class="chronicle-bullet flex items-start gap-3.5">
+              <span class="text-gold mt-1.5 text-xs">◆</span>
+              <span>Migrated <strong class="text-ivory font-semibold">250+ legacy ETL workflows into modular dbt and Airflow pipelines</strong>, cutting operational overhead and <strong class="text-emeraldPulse font-semibold">freeing $500K+ annually</strong> in maintenance and compute costs.</span>
+            </li>
+            <li data-tags="governance" class="chronicle-bullet flex items-start gap-3.5">
+              <span class="text-gold mt-1.5 text-xs">◆</span>
+              <span>Deployed <strong class="text-ivory font-semibold">Monte Carlo and Great Expectations</strong> as a data observability layer, <strong class="text-goldLight font-semibold">reducing data quality incidents by 60%</strong>.</span>
+            </li>
+            <li data-tags="finops streaming" class="chronicle-bullet flex items-start gap-3.5">
+              <span class="text-gold mt-1.5 text-xs">◆</span>
+              <span>Rebuilt CI/CD with Jenkins and GitHub Actions (raising deployment success from <strong class="text-ivory font-semibold">70% to 98%</strong> and cutting release cycles by 45%) and operationalized <strong class="text-ivory font-semibold">Kafka-based ML feature pipelines</strong>, cutting model deployment time by 50%.</span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- 03. TREDENCE -->
+        <article class="reveal-node vellum-card relative rounded-3xl p-6 sm:p-10 shadow-architectural">
+          <div class="absolute -left-[25px] sm:-left-[41px] top-9 w-4 h-4 rounded-full bg-obsidian border-2 border-gold/65"></div>
+
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/10">
+            <div>
+              <div class="flex items-center gap-3">
+                <span class="font-mono text-xs text-gold">03</span>
+                <h3 class="font-monument text-2xl sm:text-3xl font-bold text-ivory">Tredence</h3>
+                <span class="font-mono text-[11px] px-3 py-1 rounded-full bg-white/5 text-slateText border border-white/10">ONSITE / USA</span>
+              </div>
+              <p class="font-serif italic text-xl sm:text-2xl text-goldLight mt-1">Senior Data Engineer</p>
+            </div>
+            <div class="font-mono text-xs sm:text-sm text-ivory bg-obsidian px-4 py-2 rounded-xl border border-white/15 self-start md:self-center">
+              08/2017 – 11/2019
+            </div>
+          </div>
+
+          <ul class="mt-6 space-y-3.5 text-sm sm:text-base text-ivory/90 leading-relaxed">
+            <li data-tags="streaming finops" class="chronicle-bullet flex items-start gap-3.5">
+              <span class="text-gold mt-1.5 text-xs">◆</span>
+              <span>Built and maintained <strong class="text-ivory font-semibold">80+ production ETL pipelines</strong> (Informatica, SSIS, Talend, Python) feeding Oracle, SQL Server, and Snowflake across 40+ datasets, and resolved SQL/PL-SQL bottlenecks on <strong class="text-goldLight font-semibold">500M+ row tables (cutting runtime by 35%)</strong>.</span>
+            </li>
+            <li data-tags="finops" class="chronicle-bullet flex items-start gap-3.5">
+              <span class="text-gold mt-1.5 text-xs">◆</span>
+              <span>Designed centralized <strong class="text-ivory font-semibold">Airflow monitoring across 300+ jobs</strong>, raising SLA adherence from <strong class="text-emeraldPulse font-semibold">85% to 99%</strong> and cutting mean-time-to-detect failures from 4 hours to 15 minutes.</span>
+            </li>
+            <li data-tags="governance" class="chronicle-bullet flex items-start gap-3.5">
+              <span class="text-gold mt-1.5 text-xs">◆</span>
+              <span>Automated <strong class="text-ivory font-semibold">HIPAA/PHI audit-trail tracking</strong> across healthcare pipelines, reducing manual compliance review effort by <strong class="text-goldLight font-semibold">60%</strong> and cutting audit prep from 3 weeks to 3 days.</span>
+            </li>
+            <li data-tags="finops" class="chronicle-bullet flex items-start gap-3.5">
+              <span class="text-gold mt-1.5 text-xs">◆</span>
+              <span>Delivered 15+ Power BI and Tableau executive dashboards and optimized Snowflake warehouse sizing and partition pruning, <strong class="text-emeraldPulse font-semibold">reducing cloud compute spend by 20% annually</strong>.</span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- 04. ANALYTICS8 -->
+        <article class="reveal-node vellum-card relative rounded-3xl p-6 sm:p-10 shadow-architectural">
+          <div class="absolute -left-[25px] sm:-left-[41px] top-9 w-4 h-4 rounded-full bg-obsidian border-2 border-gold/50"></div>
+
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/10">
+            <div>
+              <div class="flex items-center gap-3">
+                <span class="font-mono text-xs text-gold">04</span>
+                <h3 class="font-monument text-2xl sm:text-3xl font-bold text-ivory">Analytics8</h3>
+                <span class="font-mono text-[11px] px-3 py-1 rounded-full bg-white/5 text-slateText border border-white/10">ONSITE / USA</span>
+              </div>
+              <p class="font-serif italic text-xl sm:text-2xl text-goldLight mt-1">Data Engineer</p>
+            </div>
+            <div class="font-mono text-xs sm:text-sm text-ivory bg-obsidian px-4 py-2 rounded-xl border border-white/15 self-start md:self-center">
+              02/2015 – 07/2017
+            </div>
+          </div>
+
+          <ul class="mt-6 space-y-3.5 text-sm sm:text-base text-ivory/90 leading-relaxed">
+            <li data-tags="streaming" class="chronicle-bullet flex items-start gap-3.5">
+              <span class="text-gold mt-1.5 text-xs">◆</span>
+              <span>Built ETL workflows processing <strong class="text-goldLight font-semibold">500M+ records daily</strong> across retail and telecom warehouses using Informatica and SSIS, including <strong class="text-ivory font-semibold">Epic Clarity and Caboodle</strong> healthcare integrations.</span>
+            </li>
+            <li data-tags="finops" class="chronicle-bullet flex items-start gap-3.5">
+              <span class="text-gold mt-1.5 text-xs">◆</span>
+              <span>Designed <strong class="text-ivory font-semibold">Star Schema and Data Vault</strong> dimensional models and tuned a nightly POS reporting pipeline from <strong class="text-cyanPulse font-semibold">8 hours down to 1 hour</strong>.</span>
+            </li>
+            <li data-tags="governance" class="chronicle-bullet flex items-start gap-3.5">
+              <span class="text-gold mt-1.5 text-xs">◆</span>
+              <span>Standardized healthcare pipelines to <strong class="text-ivory font-semibold">ICD-10, CPT, LOINC, and SNOMED</strong> coding frameworks and migrated enterprise reporting from SSRS to Tableau.</span>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <div class="hairline-gold max-w-7xl mx-auto"></div>
+
+    <!-- ==================== IV. CATEGORIZED TECHNICAL MATRIX ==================== -->
+    <section id="matrix" class="py-20 sm:py-28 px-5 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+      <div class="reveal-node flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-[0.24em] text-gold">SECTION IV // TECHNICAL MATRIX</span>
+          <h2 class="font-monument text-3xl sm:text-4xl lg:text-5xl font-bold text-ivory mt-2.5">
+            Core Skills &amp; Cloud Fabric
+          </h2>
+        </div>
+
+        <!-- Domain Filter Tabs -->
+        <div class="flex flex-wrap gap-2" role="tablist" aria-label="Filter Technical Matrix">
+          <button type="button" data-matrix-filter="all"
+                  class="matrix-btn px-4 py-2 rounded-xl font-mono text-xs uppercase tracking-wider bg-gold text-obsidian font-semibold transition-all">
+            All Domains
+          </button>
+          <button type="button" data-matrix-filter="lakehouse"
+                  class="matrix-btn px-4 py-2 rounded-xl font-mono text-xs uppercase tracking-wider bg-vellum border border-white/10 text-slateText hover:text-ivory transition-all">
+            Lakehouse &amp; Modeling
+          </button>
+          <button type="button" data-matrix-filter="streaming"
+                  class="matrix-btn px-4 py-2 rounded-xl font-mono text-xs uppercase tracking-wider bg-vellum border border-white/10 text-slateText hover:text-ivory transition-all">
+            Streaming &amp; MLOps
+          </button>
+          <button type="button" data-matrix-filter="cloud"
+                  class="matrix-btn px-4 py-2 rounded-xl font-mono text-xs uppercase tracking-wider bg-vellum border border-white/10 text-slateText hover:text-ivory transition-all">
+            Multi-Cloud &amp; IaC
+          </button>
+          <button type="button" data-matrix-filter="governance"
+                  class="matrix-btn px-4 py-2 rounded-xl font-mono text-xs uppercase tracking-wider bg-vellum border border-white/10 text-slateText hover:text-ivory transition-all">
+            Governance &amp; Domains
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Card 1: Lakehouse, Warehousing & Orchestration -->
+        <div data-matrix-cat="lakehouse" class="matrix-card vellum-card reveal-node p-7 sm:p-8 rounded-3xl">
+          <div class="flex items-center justify-between pb-4 border-b border-white/10">
+            <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-ivory">Warehousing, Lakehouse &amp; ETL/ELT</h3>
+            <span class="font-mono text-xs text-gold">01</span>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-5">
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-gold/45 text-goldLight">Snowflake</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-gold/45 text-goldLight">Databricks</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-gold/45 text-goldLight">Delta Lake</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-gold/45 text-goldLight">Apache Iceberg</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-white/10 text-ivory">BigQuery</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-white/10 text-ivory">Redshift</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-white/10 text-ivory">Synapse</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-gold/45 text-goldLight">dbt</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-gold/45 text-goldLight">Airflow</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-white/10 text-ivory">Dagster / Prefect</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-white/10 text-ivory">Data Vault 2.0</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-white/10 text-ivory">Star Schema</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-white/10 text-ivory">Data Mesh &amp; Contracts</span>
           </div>
         </div>
 
-        <div class="portfolio-card">
-          <img src="images/camping-2.png" alt="Cloud Platforms" />
-          <h3>Engineering Excellence</h3>
-          <p>
-            Delivering secure, optimized, and high-performance modern data
-            solutions.
-          </p>
-          <div class="portfolio-popup">
-            <h4>Engineering Excellence</h4>
-            <p>
-              My approach combines strong engineering principles with modern
-              cloud technologies to deliver secure, high-performing, and
-              cost-efficient solutions. From automation and governance to data
-              observability and CI/CD, I focus on building platforms that are
-              scalable, maintainable, and optimized for long-term business
-              success.
-            </p>
+        <!-- Card 2: Streaming, Big Data & MLOps/GenAI -->
+        <div data-matrix-cat="streaming" class="matrix-card vellum-card reveal-node p-7 sm:p-8 rounded-3xl">
+          <div class="flex items-center justify-between pb-4 border-b border-white/10">
+            <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-ivory">Streaming, Big Data &amp; AI/ML Infra</h3>
+            <span class="font-mono text-xs text-gold">02</span>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-5">
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-gold/45 text-goldLight">Python · SQL · Scala · Golang</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-gold/45 text-goldLight">Apache Kafka</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-gold/45 text-goldLight">Spark (Batch &amp; Streaming)</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-white/10 text-ivory">Flink · Beam · Pulsar</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-white/10 text-ivory">Debezium CDC</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-gold/45 text-goldLight">RAG &amp; Vector Databases</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-white/10 text-ivory">Feast Feature Store</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-white/10 text-ivory">MLflow · SageMaker Pipelines</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-white/10 text-ivory">LLMOps &amp; Embedding Pipelines</span>
           </div>
         </div>
 
-        <div class="portfolio-card">
-          <img src="images/camping-3.png" alt="BI Analytics" />
-          <h3>Professional Experience</h3>
-          <p>
-            13+ years designing enterprise cloud, AI, and streaming
-            architectures.
-          </p>
-          <div class="portfolio-popup">
-            <h4>Professional Experience</h4>
-            <p>
-              Over the past 11+ years, I have partnered with organizations
-              across healthcare, finance, retail, insurance, and manufacturing
-              to architect and modernize enterprise data ecosystems. My
-              experience spans cloud transformation, AI-driven analytics,
-              real-time data processing, and leading cross-functional teams to
-              deliver impactful, business-focused technology solutions.
-            </p>
+        <!-- Card 3: Multi-Cloud & DevOps/IaC -->
+        <div data-matrix-cat="cloud" class="matrix-card vellum-card reveal-node p-7 sm:p-8 rounded-3xl">
+          <div class="flex items-center justify-between pb-4 border-b border-white/10">
+            <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-ivory">Multi-Cloud Platforms &amp; DevOps</h3>
+            <span class="font-mono text-xs text-gold">03</span>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-5">
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-gold/45 text-goldLight">AWS (S3, Glue, EMR, Kinesis, Lake Formation)</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-white/10 text-ivory">Azure (ADLS, Synapse, Data Factory, Event Hub)</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-white/10 text-ivory">GCP (BigQuery, Dataflow, Pub/Sub, Vertex AI)</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-gold/45 text-goldLight">Terraform &amp; Helm</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-gold/45 text-goldLight">Kubernetes &amp; Docker</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-white/10 text-ivory">GitHub Actions · GitLab CI · Jenkins · GitOps</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Governance, Observability & Industry Domains -->
+        <div data-matrix-cat="governance" class="matrix-card vellum-card reveal-node p-7 sm:p-8 rounded-3xl">
+          <div class="flex items-center justify-between pb-4 border-b border-white/10">
+            <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-ivory">Governance, Observability &amp; Domains</h3>
+            <span class="font-mono text-xs text-gold">04</span>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-5">
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-gold/45 text-goldLight">HIPAA · GDPR · CCPA · PHI</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-white/10 text-ivory">RBAC · ABAC · Dynamic Masking</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-gold/45 text-goldLight">Unity Catalog · OpenLineage · Ranger</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-gold/45 text-goldLight">Monte Carlo · Great Expectations</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-white/10 text-ivory">Healthcare (FHIR, HL7, ICD-10, CPT, LOINC)</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-white/10 text-ivory">FinTech (Risk &amp; Forecasting)</span>
+            <span class="font-mono text-xs px-3 py-1.5 rounded-lg bg-obsidian border border-white/10 text-ivory">Power BI · Tableau · Looker · Grafana</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="employers section" id="employers">
-      <h2 class="about-title">Trusted By</h2>
-      <p class="section-text">
-        Organizations where I contributed to scalable data and cloud platforms.
-      </p>
+    <div class="hairline-gold max-w-7xl mx-auto"></div>
 
-      <div class="employer-grid">
-        <div class="employer-card">
-          <div class="company-logo">
-            <img
-              src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8NDhANDQ0PDQ4PDhAPDRANDQ8NEA0PFhEWFxURFRMYKCogGBoxHRUTITEhJys3Li4wIx8zODMtNygtOisBCgoKDg0OGxAQGi0mHh8tLS0tLS0tLS0tLS0tLSstLS0tLS0vLi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLv/AABEIAMgAyAMBEQACEQEDEQH/xAAbAAEAAwADAQAAAAAAAAAAAAAAAQYHAwQFAv/EAD8QAAIBAwAECgcFBwUAAAAAAAABAgMEEQYTITEFEiJBUWFxkaGxFFRygYLB0RYyQpPhBzRSc7LC8CMzQ1Oj/8QAGgEBAAIDAQAAAAAAAAAAAAAAAAUGAQMEAv/EACkRAQACAQMEAgICAgMAAAAAAAABAwIEBRIRE0FRITEVUmGhMjNCcZH/2gAMAwEAAhEDEQA/ANxAAAAAAAAAAAAABAY+0mGUGQAkCDHyfAOrAZZSAAAAAAAAAAAAAAAAAAAAwOKvXjTi5TkoxW9yaSR5zsjCOss4YTlPSFav9M6NPKowlWfT9yPfvIu/dq8fjH5S9Gz25/5fDxa+md1L7ip011JyfiR+e72z/j8JDDZqo/y+XVlpTe/9+OynT+ho/J6n9nR+J036/wBy+6elt6t9WMvapw+SR6jddR7eZ2jT+v7eja6cVFsq0YzXTCTi+7addW8ZdemcOO3ZcekzhkulvWVSEZrYpxUlnmyiewzjPHkr+WM45TDmPbyAAAAAAAAAAAAAAAAIMAZYh53DPC9Ozp8ebzJ5UILfNnLqtVjRj1l16XS5X58cWccK8LVrufGqy2fhgvuw+pVdRq7Lp65LZptFXRj0x+3ROV2AAAAMwxl9Nc4J/d6X8qH9KLtp/wDXCiX/AOzL/t2ze0gAAAAAAAAAAAAAAACAx5dXhG9hb0pVajworvfMjTdbFOE5S3U1TdZGEMt4U4QndVZVaj2vZFc0Y/woqGp1GV2XLJc9LpsaMOMOqc7qDAAAA6HUMwxl9Nc4J/d6X8qH9KLvp/8AXCiX/wCzL/t2zc0gAAAAAAAAAAAAAAACAM+024V11b0eD5FJ8rH4p/oVndNVzz4R9Qs+0aXhh3Z+5Voh02Ac1na1K81TpRc5vcl55Ztqqzsy44w03XYVY8s5XDg7QmKSlc1HJ88KfJS6s85O0bPjHzn/AOK/fvOc/FcdP5ezS0Zso7qEX7UpS82d2O3UR/xcGW5anL/k5Ho/Z+rU+49zoaP1eY12o/dwVdFrKX/DxeuM5x+ZrnbdPM9ej3G5amPjk9a3pKnCMI/djFRXPsSOzDHjHRx55cp6uU9vIAAAAAAAAAAAAAAAA83h6/8ARbedX8SWILpk9iOXV39quZdOko71sYMrlJttt5beW3z9ZTcp5TMyu+OMY4xEIPL0mEXJqKWW3hJc7PWOPKejxnlxjq07RzgeNnSSaTqyWakt+3oz0It2i0sUYfP2put1c359fD1zucQOh8A+gMMJMsgAAAAAAAAAAAAAAAABQ9Pr7jVYW8XsprjT65Pd4eZXN4u65RhHhZNlo6YzZPlUyETyQO3wTcqjcUqskmozTeejp8To0ucYWxlLl1dc2U5Yw1qMk1lF0ieSjz8JPQkAAAAAAAAAAAAAAAAAAAAHxVmoxcm8JJtvoSR4zy6R1esces9GR8IXTr1p1nvnJvsXN8il6iybLJyXjTVdquMHXNDoQBJkaXojfa+0hl5nT5Evdufdgtu3XdymPcKZuNHavn1L2yQ8o9IZAAAAAAAAAAAAAAAAAABBjyPB0zvdTaSiniVVqC7OfwyR+5XcKZj2kdsp7l8eoZuVJcQAAAsmg19q7h0W+TWWF7SWV8yX2m/jZxnyhd5o5V848NCLN/KrpMgAAAAAAAAAAAAAAAAAAIDH8s+07vdZcRordSjt9qSz5YKzu13Kzj6WnZaONU5+1aIdNAAAB929Z05xqReJRkpLtTNlWc4ZxMNdtcZ4TjLXLG4ValCrHdOKki602RnhGSi21zhnOE+HYNrWAAAAAAAAAAAAAAAAAADir1FCEpyeFFNt9CR4zyjHGZnw9YYzllER5ZHe3DrVZ1Zb5ycn8l5FKvs7lk5L1p6u3XGDhNMtyYQcpKK2tvCXWz3hjyyiHjPLjjMvR0h4N9Er6tfdcIyj3bfHJ06zT9nPo5NBqu/X18vNOPw7gC96BX3Hozt29tJ8aPsyefPJZdpv5YcPSr7xRwsiz2thMoUAAAAAAAAAAAAAAAAAAFe02vdVauCfKqtQXZvf+dZGbpdwp6R5Se1U874nxDOSqLcgMvY0UtddeU01yYZnL3LZ44JDbaud8I3dLeFE/wArFp/Z8alTrpf7cnCXZL9USe708sIz9IrZruNk4e1FK4s/kMnl6ujN96PdU5N4jJ8SfY93jg7dvv7VsI/cqO7TPuGpot8SpoZAAAAAAAAAAAAAAAAAMDO9ObzWXOqT2UY4+JpN/IrO7XcreHpadnp4U8/OSuEQmQC6/s+tMRq13ztQj7tr80WHZqvic1a3u7rlGHpZeF7P0ihUo/xReOqS2p9+CW1NXcqnH2idNb2rIz9MllHDaexrY/oUrLHpPReccuWMTAeXoET0nqTHWOjU9HL70i2p1G8yS4s/aWz9S5aK7u0xKka2js3Ti9M7HIkAAAAAAAAAAAAAAAYHDdVlShKct0YuT7EjzbnGGMy9V4TllEMiuqzq1JVJfenJyfv5ik3ZznnOS904RXXGMOM1+G1Axj5YmfhqujtpqLWlTaw+Lxpdstr8y5aGrt0xCka23u3ZZPSOrp1hysx0sstTdzwsRn/qR9+/xyVLcqe3bMx5W/arudERPh45HpMAtegN/wAWpO3b2TXGh1SW/wAPInNov6ZTX7QG9UdcYsjwvZYlbSGQAAAAAAAAAAAAAEGBXNOb3V22rT5VaSj8K2v5d5Gbrdwq4+0rtNPO7l6Z4VVbQDu8C2mvuaVLGVKfK9lbX4I6tHX3LYhya23tU5ZNZRc4j4UgEiq6e2fHowrpbacsS9mT+uCI3enlhGUeEzs1/GycJ8qEVlaUgc/B906FWFaO+Ek+1c68zfp7ZrsjJz6mru1zg1yhUU4xnF5Ukmn1F0wyjLGJhR88ZxymJ8OQ9vIAAAAAAAAAAAAACAxLOdNr3W3TgnyaK4vxPa/l3FV3S7nbx9LZtFPCnn+yvkWlwC2aAWnGq1KzWyCUYvre/wAl3k5tFXWZz9IDe7umMYe16LCriQOrwhbKvRnSe6cWjVfhFlc4ttNk15xlHhklSDhJxksSi2muhopWePGZheq8uWMS+Tw9hkaHoPfa221TeZUXxfhe2L817i07Xdzq6T4VHdqO3d1j6lZCURYAAAAAAAAAAAAADgvbhUqc6kt0IuT9yNVufDCcpbKsJzzjGPLIq9V1JynLbKUnJ9rZSrM+Wcz7XqnCMMIj04zW2SGTq0zQ+01NnBtcqpmcvfu8MFt26rhRCm7ld3NRPqHtkgj0gAM10zstTdymliNVcddu5/51lU3Snhb19rbtN/Onj6eCRiVAfw93Q6+1N1GLeIVeRLt/C+/zJLbLu3b08Sit2o7lPKPuGlFrVJJkAAAAAAAAAAAAArGnl7q7dUU9tWW32YvL+RE7tdwq4x5S20U87uXpn5WFsQYHPZW7rVYUlvnNR/U3UV87Iho1FsV1zk12lBRiorYkkkuhF2wx44xCi5TymZfZnwwkyAFZ06stZbKqlyqUs/C9j+RFbrTzr5ekrtF3C7j7Z6VZbQdR9Rk4tNPDTymubDzk9YzOM9XnLHlHSWscEXquLenWX4o7eqS2Nd5dNLd3aoyUbU0zVbOHp3joaIAAAAAAAAAACABjqRDNtM73XXcop5jSSgu3e33+RVtzu7l3H0tm009unl7eERaWALFoNaay61jWylFv4nsX9xLbTVyt5ekPvNvGnh7aKWhVQAAA4bugqtOVOW6UXF+812YRnjMPdec4ZRlHhkVzRdKcqct8JOL9xSbcJwznGV6psjPCMo8uM1toBc9AL/ZUt293Lh/d8iwbPd8TXKt71R0mLIXMnf4QKTIAAAAAAAAAIMDr8IXKo0p1XuhFy8DVfZGFc5NlNc2WRjHlkdSo5ycpPLk22+l5KVnlOWUyvdeEY4xjD4PD2MDQtBLTV2zqtbasm/hTwvmWjaquNfL2qW7Xc7uPpZiWRQAAAQY/hhnmnNlq7nWpcmtHPxR2P+0rO708beUeVq2a/lVwnwrhEJkA7vAt76NcU63NGXK9l7H9Tq0d3atjJya2nvU5YtYi8pPqLljPWOqkzHT4fR6YAAAAAAAAAEGBVtPb3iUI0U9tWWZezFp+eCI3a7jVw9pjZ6edvP0oRWVqAJpwcpKMVlyaSXXk94Yzll0jy12Zcces+Gu2FsqNKFJboRUfAu1FfbrjFRbrJzznP27JtawAAAgCv6a2WttXNLlUnx12bpeBGbnT3KeXpJbVd274xn6lnBVVw6pMTLEQgzE/PVmfppmiN9r7WOXmdPkS92592C27dd3KlM3KjtXT6l7hIOAAAAAAAAAAQ2Ymfjqx56Mz0uvdddzSeY00oR92/wAclU3O7uW9PS37VT26Yn28UjUoAezojaa28hlZjTzOXuWzxwSO2Vc74n0jN1u4UTHtppbFQSZAAAAgeR8VqanFwksqSaa6U0eM8Yyx6PWOU4zEwyO+tnRqzpPfCTXauZ+RS76uFk4rzp7e5VGTrmhvSJFk0GvtXcOi3yaywvaWWvDJL7Tfws4e0NvFHOvuR4aGWdVgAAAAAAAAB1OE7pUKFSq/wQbXW+Zd+DRqLO3XOUttFc22RjHlkk5OTbk8tvLfS+cpeeXXKZXrDGIxjog8PYBeP2f2mKdSu19+ShHsjv8AF+BY9np6Yzn7VjerutkYeluJtB+UhkAAAAADP9PbLiV41ktlWOJe1H9MdxW92p42coj7WbZb+Vc4T4VghU4AfdvWdOcZxeJRkpLtRsqz4ZRLXdXGeMxLW7G4ValCrHdOKa7i602RnhGUeVFurmvOcZ8OwbPpr69UmQAAAAAABX9LrW4r0Y0rem58aSdTlQjhLat76cdxHbjVZZhwwjr1SO221VWc7J6dFQ+y196v/wCtL6kF+M1PnFPfltN+39Sn7LX3q7/NpfUfjNT+rP5bS/t/Un2WvvV3+bS+ojbNT+rE7tpv2/qV+4Es/R7enSaw4x5XtPa/Fssulp7WEYqxqru7bOft3zpc6QAAAAAAeNpRwbK6tpQhHjVItSprKWXzrL6snFrqJuqnHGPl26DURRdGWX0pX2WvvV3+ZS+pXvxep/VYvy2m/b+pPstferv82l9R+L1P6s/ltL+39Sj7LX3q7/MpfUfi9T+p+W037f1K46JW1xQoujcU+JxZN0+VGWU9r3deSe2+u2uvjZH0r+4WVWWc65+3unej0mQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/2Q=="
-              alt=" Shirley Ryan AbilityLab/image"
-            />
+    <!-- ==================== V. CERTIFICATIONS & EDUCATION ==================== -->
+    <section id="credentials" class="py-20 sm:py-28 px-5 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+      <div class="reveal-node mb-12">
+        <span class="font-mono text-xs uppercase tracking-[0.24em] text-gold">SECTION V // VERIFIED CREDENTIALS</span>
+        <h2 class="font-monument text-3xl sm:text-4xl lg:text-5xl font-bold text-ivory mt-2.5">
+          Certifications &amp; Academic Foundation
+        </h2>
+      </div>
+
+      <!-- 6 Verified Industry Certifications Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+        <div class="vellum-card reveal-node p-6 rounded-2xl shadow-architectural flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">DATABRICKS</span>
+            <span class="w-2 h-2 rounded-full bg-emeraldPulse"></span>
           </div>
-          <h3>Shirley Ryan AbilityLab </h3>
-          <p>
-            Architected healthcare cloud platforms, real-time pipelines, and
-            AI-driven analytics solutions.
-          </p>
-          <div class="employer-popup">
-            <h4>Shirley Ryan AbilityLab</h4>
-            <p>
-              Led the design of enterprise healthcare data platforms, real-time
-              streaming systems, and AI-driven analytics solutions while
-              improving governance, compliance, and cloud performance across
-              AWS, Azure, and GCP.
-            </p>
-          </div>
+          <h3 class="font-serif text-xl sm:text-2xl font-semibold text-ivory leading-snug">
+            Databricks Certified Data Engineer
+          </h3>
         </div>
 
-        <div class="employer-card">
-          <div class="company-logo">
-            <img
-              src="https://media.licdn.com/dms/image/v2/C560BAQGo-Xv0oLVW1Q/company-logo_200_200/company-logo_200_200/0/1630612005519/dataart_media_entertainment_practice_logo?e=2147483647&v=beta&t=_05_e00ldrafmde2_7TnDc9X0AzNyaore0N_AUbm87s"
-              alt="DataArt"
-            />
+        <div class="vellum-card reveal-node p-6 rounded-2xl shadow-architectural flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">SNOWFLAKE</span>
+            <span class="w-2 h-2 rounded-full bg-emeraldPulse"></span>
           </div>
-          <h3 style="margin-top: 15px">DataArt</h3>
-          <p>
-            Modernized enterprise data platforms with scalable cloud and
-            streaming architectures.
-          </p>
-          <div class="employer-popup">
-            <h4>DataArt</h4>
-            <p>
-              Built scalable cloud and hybrid data engineering solutions,
-              modernized legacy ETL systems, and developed high-performance
-              streaming and analytics platforms using Snowflake, Databricks,
-              Kafka, and Spark.
-            </p>
-          </div>
+          <h3 class="font-serif text-xl sm:text-2xl font-semibold text-ivory leading-snug">
+            Snowflake SnowPro Advanced – Architect
+          </h3>
         </div>
 
-        <div class="employer-card">
-          <div class="company-logo">
-            <img
-              src="https://media.licdn.com/dms/image/v2/D560BAQG4WXPYWbj4Kg/company-logo_200_200/B56ZtaX2ZTHkAI-/0/1766747761102?e=2147483647&v=beta&t=5qyN2nieH4HAtzd670nEx010nPAGHg5_HoKGoWV-O90"
-              alt="Tredence"
-            />
+        <div class="vellum-card reveal-node p-6 rounded-2xl shadow-architectural flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">AMAZON WEB SERVICES</span>
+            <span class="w-2 h-2 rounded-full bg-emeraldPulse"></span>
           </div>
-          <h3>Tredence</h3>
-          <p>
-            Built optimized ETL pipelines and enterprise analytics solutions for
-            large-scale systems.
-          </p>
-          <div class="employer-popup">
-            <h4>Tredence</h4>
-            <p>
-              Developed enterprise ETL pipelines, optimized large-scale data
-              processing systems, and created analytics and reporting solutions
-              that improved operational efficiency, monitoring, and data
-              reliability.
-            </p>
-          </div>
+          <h3 class="font-serif text-xl sm:text-2xl font-semibold text-ivory leading-snug">
+            AWS Certified Solutions Architect
+          </h3>
         </div>
 
-        <div class="employer-card">
-          <div class="company-logo">
-            <img
-              src="https://avatars.githubusercontent.com/u/5949360?s=200&v=4"
-              alt="10Pearls"
-            />
+        <div class="vellum-card reveal-node p-6 rounded-2xl shadow-architectural flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">GOOGLE CLOUD</span>
+            <span class="w-2 h-2 rounded-full bg-emeraldPulse"></span>
           </div>
-          <h3>Analytics8</h3>
-          <p>
-            Developed secure ETL workflows and enterprise data warehouse
-            solutions.
-          </p>
-          <div class="employer-popup">
-            <h4>Analytics8</h4>
-            <p>
-              Designed and maintained enterprise data warehouse solutions,
-              automated ETL workflows, optimized reporting systems, and
-              implemented secure healthcare and telecom data integration
-              pipelines.
-            </p>
+          <h3 class="font-serif text-xl sm:text-2xl font-semibold text-ivory leading-snug">
+            Google Cloud Professional Data Engineer
+          </h3>
+        </div>
+
+        <div class="vellum-card reveal-node p-6 rounded-2xl shadow-architectural flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">CONFLUENT / APACHE</span>
+            <span class="w-2 h-2 rounded-full bg-emeraldPulse"></span>
           </div>
+          <h3 class="font-serif text-xl sm:text-2xl font-semibold text-ivory leading-snug">
+            Apache Kafka Developer Certified
+          </h3>
+        </div>
+
+        <div class="vellum-card reveal-node p-6 rounded-2xl shadow-architectural flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-gold">CLOUD NATIVE (CNCF)</span>
+            <span class="w-2 h-2 rounded-full bg-emeraldPulse"></span>
+          </div>
+          <h3 class="font-serif text-xl sm:text-2xl font-semibold text-ivory leading-snug">
+            Certified Kubernetes Administrator (CKA)
+          </h3>
+        </div>
+      </div>
+
+      <!-- Education Card -->
+      <div class="vellum-card reveal-node p-7 sm:p-9 rounded-3xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-[0.2em] text-gold">UNIVERSITY OF THE PUNJAB</span>
+          <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-ivory mt-1">
+            Bachelor of Science (B.S.) in Computer Science
+          </h3>
+        </div>
+        <div class="font-mono text-sm px-5 py-2.5 rounded-xl bg-obsidian border border-gold/35 text-goldLight self-start sm:self-center">
+          2011 – 2015
         </div>
       </div>
     </section>
 
-    <section class="contact section" id="contact">
-      <h2 class="about-title">Contact Me</h2>
-      <p class="section-text">
-        Let’s discuss scalable data solutions, cloud platforms, and analytics
-        projects.
-      </p>
+    <div class="hairline-gold max-w-7xl mx-auto"></div>
 
-      <div class="contact-wrapper">
-        <div class="contact-info">
-          <p><i class="fas fa-map-marker-alt"></i> Seattle, WA 98121</p>
-          <p><i class="fas fa-envelope"></i> khuram.s.data@gmail.com</p>
-          <p><i class="fas fa-phone"></i> (509) 215-9866</p>
-          <p><i class="fas fa-clock"></i> Monday - Friday: 9:00 AM - 5:00 PM</p>
+    <!-- ==================== VI. CORRESPONDENCE & DIRECT INQUIRY ==================== -->
+    <section id="correspondence" class="py-20 sm:py-28 px-5 sm:px-8 lg:px-12 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-5 reveal-node">
+          <span class="font-mono text-xs uppercase tracking-[0.24em] text-gold">SECTION VI // CORRESPONDENCE</span>
+          <h2 class="font-monument text-3xl sm:text-4xl font-bold text-ivory mt-2.5 leading-tight">
+            Direct Architectural Dispatch
+          </h2>
+          <p class="text-sm sm:text-base text-slateText mt-4 leading-relaxed">
+            Available for Principal / Lead Data Solution Architect roles, Medallion Lakehouse migrations, real-time Kafka/Spark streaming infrastructure, and regulated healthcare/FinTech data governance.
+          </p>
+
+          <div class="mt-8 space-y-4">
+            <div class="vellum-card p-5 rounded-2xl flex items-center justify-between gap-3">
+              <div>
+                <div class="font-mono text-[10px] uppercase tracking-[0.2em] text-slateText">Electronic Mail</div>
+                <a href="mailto:khuram.s.data@gmail.com" class="text-sm sm:text-base font-medium text-ivory hover:text-goldLight transition-colors">
+                  khuram.s.data@gmail.com
+                </a>
+              </div>
+              <button type="button" onclick="copyToClipboard('khuram.s.data@gmail.com', 'Copied: khuram.s.data@gmail.com')"
+                      class="px-3.5 py-2 rounded-xl bg-gold/15 hover:bg-gold text-goldLight hover:text-obsidian border border-gold/40 font-mono text-xs transition-all">
+                Copy
+              </button>
+            </div>
+
+            <div class="vellum-card p-5 rounded-2xl flex items-center justify-between gap-3">
+              <div>
+                <div class="font-mono text-[10px] uppercase tracking-[0.2em] text-slateText">Direct Telephone</div>
+                <a href="tel:+15092159866" class="text-sm sm:text-base font-medium text-ivory hover:text-goldLight transition-colors">
+                  (509) 215-9866
+                </a>
+              </div>
+              <button type="button" onclick="copyToClipboard('(509) 215-9866', 'Copied: (509) 215-9866')"
+                      class="px-3.5 py-2 rounded-xl bg-gold/15 hover:bg-gold text-goldLight hover:text-obsidian border border-gold/40 font-mono text-xs transition-all">
+                Copy
+              </button>
+            </div>
+
+            <div class="vellum-card p-5 rounded-2xl flex items-center justify-between gap-3">
+              <div>
+                <div class="font-mono text-[10px] uppercase tracking-[0.2em] text-slateText">Base &amp; Availability</div>
+                <div class="text-sm sm:text-base font-medium text-ivory">Seattle, WA 98121 · Remote / USA</div>
+              </div>
+              <span class="font-mono text-xs px-3 py-1 rounded-lg bg-obsidian border border-white/10 text-goldLight">PST / UTC-8</span>
+            </div>
+          </div>
         </div>
 
-        <form class="contact-form">
-          <input
-            type="text"
-            name="user_name"
-            placeholder="Your Name*"
-            required
-          />
+        <!-- Direct Dispatch Form -->
+        <div class="lg:col-span-7 reveal-node delay-1">
+          <div class="vellum-card p-7 sm:p-10 rounded-3xl shadow-architectural">
+            <form id="dispatch-form" class="space-y-5">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label for="f-name" class="block font-mono text-xs uppercase tracking-wider text-slateText mb-2">Your Name</label>
+                  <input id="f-name" type="text" required placeholder="Jordan Vance"
+                         class="w-full px-4 py-3.5 rounded-xl bg-obsidian border border-white/15 focus:border-gold focus:outline-none text-sm text-ivory placeholder-slateText/40 transition-colors" />
+                </div>
+                <div>
+                  <label for="f-email" class="block font-mono text-xs uppercase tracking-wider text-slateText mb-2">Email Address</label>
+                  <input id="f-email" type="email" required placeholder="jordan@enterprise.io"
+                         class="w-full px-4 py-3.5 rounded-xl bg-obsidian border border-white/15 focus:border-gold focus:outline-none text-sm text-ivory placeholder-slateText/40 transition-colors" />
+                </div>
+              </div>
 
-          <input
-            type="email"
-            name="user_email"
-            placeholder="Your Email*"
-            required
-          />
+              <div>
+                <label for="f-subject" class="block font-mono text-xs uppercase tracking-wider text-slateText mb-2">Engagement Scope</label>
+                <select id="f-subject"
+                        class="w-full px-4 py-3.5 rounded-xl bg-obsidian border border-white/15 focus:border-gold focus:outline-none text-sm text-ivory transition-colors">
+                  <option value="Data Solution Architect / Principal Data Leadership">Data Solution Architect / Principal Data Leadership</option>
+                  <option value="Enterprise Lakehouse & Snowflake Cost Optimization">Enterprise Lakehouse &amp; Snowflake Cost Optimization</option>
+                  <option value="Real-Time Kafka / Spark Streaming & CDC Migration">Real-Time Kafka / Spark Streaming &amp; CDC Migration</option>
+                  <option value="HIPAA / GDPR Data Governance & AI/RAG Infrastructure">HIPAA / GDPR Data Governance &amp; AI/RAG Infrastructure</option>
+                </select>
+              </div>
 
-          <textarea
-            name="message"
-            placeholder="Your Message*"
-            required
-          ></textarea>
+              <div>
+                <label for="f-body" class="block font-mono text-xs uppercase tracking-wider text-slateText mb-2">Architectural Brief</label>
+                <textarea id="f-body" rows="4" required placeholder="Share details regarding your platform scale, lakehouse roadmap, or leadership role..."
+                          class="w-full px-4 py-3.5 rounded-xl bg-obsidian border border-white/15 focus:border-gold focus:outline-none text-sm text-ivory placeholder-slateText/40 transition-colors resize-none"></textarea>
+              </div>
 
-          <button type="submit">Send Message</button>
-          <p id="success-message" class="success-message">
-            Email sent successfully!
-          </p>
-        </form>
+              <button type="submit"
+                      class="w-full py-4 px-6 rounded-xl bg-gold hover:bg-goldLight text-obsidian font-semibold text-sm tracking-wide transition-all duration-300 shadow-goldHalo flex items-center justify-center gap-2.5">
+                <span>Prepare Direct Dispatch</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                </svg>
+              </button>
+            </form>
+
+            <div id="dispatch-success" class="hidden py-10 text-center space-y-4">
+              <div class="w-14 h-14 rounded-2xl bg-emeraldPulse/15 border border-emeraldPulse/40 text-emeraldPulse flex items-center justify-center mx-auto">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+              </div>
+              <h3 class="font-monument text-2xl font-bold text-ivory">Dispatch Formatted</h3>
+              <p class="text-sm text-slateText max-w-md mx-auto">
+                Your brief is ready to send to <span class="text-goldLight">khuram.s.data@gmail.com</span>.
+              </p>
+              <div class="pt-2 flex flex-wrap justify-center gap-3">
+                <a id="dispatch-mailto" href="mailto:khuram.s.data@gmail.com"
+                   class="px-5 py-2.5 rounded-xl bg-gold text-obsidian font-mono text-xs uppercase font-semibold tracking-wider">
+                  Open Mail Client
+                </a>
+                <button type="button" id="dispatch-reset"
+                        class="px-5 py-2.5 rounded-xl bg-obsidian border border-white/15 text-ivory font-mono text-xs uppercase tracking-wider hover:border-gold">
+                  Compose Another
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
+  </main>
 
-    <footer>
-      <p>Copyright © 2026 Khuram Sindhu. All Rights Reserved.</p>
-    </footer>
-  </body>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- Minimal Architectural Footer -->
+  <footer class="relative z-10 border-t border-gold/20 bg-obsidian py-10 px-5 sm:px-8 lg:px-12">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-slateText">
+      <div>
+        <span class="text-goldLight font-semibold">KHURAM SINDHU</span> · DATA SOLUTION ARCHITECT
+      </div>
+      <div>
+        SEATTLE, WA 98121 · OPEN TO REMOTE OPPORTUNITIES
+      </div>
+    </div>
+  </footer>
 
+  <!-- ==================== LIVE BACKEND ENGINE & ARCHITECTURAL SCRIPT ==================== -->
   <script>
-    emailjs.init("3pQ1cITUXowZmJ_OF");
-
-    const form = document.querySelector(".contact-form");
-
-    // Create success/error message element
-    const messageBox = document.createElement("p");
-    messageBox.className = "success-message";
-    messageBox.style.display = "none";
-
-    // Add message box inside form
-    form.prepend(messageBox);
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      emailjs
-        .sendForm("service_xz8ka9j", "template_b8du6fw", form)
-        .then(() => {
-          // Success Message
-          messageBox.style.display = "block";
-          messageBox.textContent = "✅ Message sent successfully!";
-          messageBox.style.color = "green";
-
-          form.reset();
-
-          // Hide message after 4 sec
-          setTimeout(() => {
-            messageBox.style.display = "none";
-          }, 4000);
-        })
-        .catch((error) => {
-          // Error Message
-          messageBox.style.display = "block";
-          messageBox.textContent = "❌ Failed to send message!";
-          messageBox.style.color = "red";
-
-          console.log(error);
-
-          // Hide message after 4 sec
-          setTimeout(() => {
-            messageBox.style.display = "none";
-          }, 4000);
-        });
-    });
-  </script>
-  <script>
-    const animatedElements = document.querySelectorAll(
-      ".journey-box, .stat-card, .expertise-card, .service-card, .portfolio-card, .employer-card",
-    );
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate");
+    /**
+1. ACCURATE RESUME ARCHITECTURES & LIVE BACKEND ENGINE DAEMON DATA
+- Strictly derived from Khuram Sindhu's 5 flagship projects & production environments.
+     */
+    const ARCHITECTURES = [
+      {
+        id: 'lakehouse-migration',
+        subtitle: 'SYSTEM ARCHITECTURE 01 // MEDALLION LAKEHOUSE CONSOLIDATION',
+        title: 'Enterprise Lakehouse Migration (Bronze / Silver / Gold)',
+        pid: 'PID 4092 · LAKEHOUSE-SYNC',
+        simStats: {
+          normal: { throughput: '5.2M events/hr', latency: '2.4 sec p99', workers: '3 Warehouses → 1 Lakehouse', sla: 'HIPAA / GDPR · 99% SLA' },
+          peak:   { throughput: '10.4 TB / day', latency: '2.9 sec p99', workers: 'Auto-Scaled Databricks + Snowflake', sla: '-$1.2M/yr Query Savings' },
+          audit:  { throughput: '100% PHI Masked', latency: 'Zero Drift Detected', workers: 'Unity Catalog + OpenLineage', sla: 'Audit-Ready by Design' }
+        },
+        nodes: [
+          {
+            id: 'siloed-sources',
+            x: 34, y: 140, w: 185, h: 130,
+            code: 'INGEST // 01',
+            title: '3 Siloed Warehouses',
+            sub1: 'Clinical, Claims &',
+            sub2: 'Financial Domains (15+)',
+            accent: '#D4AF37',
+            latency: 'Terraform IaC',
+            throughput: 'FHIR · HL7 · EHR · Claims',
+            stack: ['Terraform', 'AWS S3', 'FHIR / HL7', 'Python'],
+            detail: 'Consolidated 3 siloed legacy data warehouses across 15+ business domains with automated Terraform infrastructure-as-code and standardized FHIR/HL7 clinical interoperability schemas.'
+          },
+          {
+            id: 'bronze-layer',
+            x: 285, y: 50, w: 195, h: 110,
+            code: 'MEDALLION // 02',
+            title: 'Bronze Raw Layer',
+            sub1: 'Immutable Append-Only',
+            sub2: 'Schema Evolution Handler',
+            accent: '#F3D98B',
+            latency: 'Sub-2s Write',
+            throughput: '10TB+ Daily Capacity',
+            stack: ['Delta Lake', 'Apache Iceberg', 'AWS S3'],
+            detail: 'Captures raw multi-source clinical, claims, and FinTech payloads on AWS S3 standardized on Delta Lake with Apache Iceberg compatibility and automated schema evolution.'
+          },
+          {
+            id: 'silver-layer',
+            x: 285, y: 250, w: 195, h: 110,
+            code: 'MEDALLION // 03',
+            title: 'Silver Conformed Layer',
+            sub1: 'dbt Transformations &',
+            sub2: 'PHI Dynamic Masking',
+            accent: '#38BDF8',
+            latency: 'Great Expectations',
+            throughput: '-60% Quality Incidents',
+            stack: ['Databricks', 'dbt', 'Airflow', 'Monte Carlo'],
+            detail: 'Cleanses, deduplicates, and conforms entities via modular dbt & Airflow pipelines guarded by Monte Carlo and Great Expectations observability plus dynamic PHI masking.'
+          },
+          {
+            id: 'gold-layer',
+            x: 550, y: 140, w: 200, h: 130,
+            code: 'MEDALLION // 04',
+            title: 'Gold Serving & Snowflake',
+            sub1: 'Dimensional Star / Vault',
+            sub2: 'Snowpipe, Streams & Tasks',
+            accent: '#D4AF37',
+            latency: '-$1.2M/yr Savings',
+            throughput: '100% SLA Commitment',
+            stack: ['Snowflake', 'Snowpipe', 'Data Vault 2.0', 'Unity Catalog'],
+            detail: 'Redesigned Snowflake serving layer using Snowpipe, Streams, and Tasks—delivering $1.2M+ in annual query cost savings while powering analytics-ready clinical and financial marts.'
+          },
+          {
+            id: 'data-mesh',
+            x: 825, y: 140, w: 255, h: 130,
+            code: 'SERVING // 05',
+            title: 'Self-Service Data Mesh & AI',
+            sub1: '300+ Governed Business Users',
+            sub2: 'BI Dashboards & RAG Search',
+            accent: '#34D399',
+            latency: '99% Regulated SLA',
+            throughput: '300+ Active Consumers',
+            stack: ['Data Mesh', 'Power BI / Tableau', 'RAG Vector Search'],
+            detail: 'Empowers 300+ clinical, operational, and finance users with governed self-service access alongside Power BI/Tableau executive reporting and RAG vector search over clinical & claims data.'
           }
-        });
+        ],
+        conduits: [
+          { from: [219, 185], to: [285, 105], color: '#F3D98B' },
+          { from: [219, 225], to: [285, 305], color: '#38BDF8' },
+          { from: [382, 160], to: [382, 250], color: '#38BDF8' },
+          { from: [480, 105], to: [550, 185], color: '#D4AF37' },
+          { from: [480, 305], to: [550, 225], color: '#38BDF8' },
+          { from: [750, 205], to: [825, 205], color: '#34D399' }
+        ],
+        logs: [
+          '[INFO] terraform-apply: verified S3 + Delta/Iceberg table properties (drift=0)',
+          '[STREAM] snowpipe-ingest: committed micro-batch 88,410 FHIR/HL7 records in 1.8s',
+          '[GUARD] monte-carlo: 42/42 dbt schema & freshness assertions PASSED',
+          '[MASK] phi-policy: applied RBAC/ABAC dynamic masking on patient_ssn, mrn',
+          '[MESH] snowflake-wh: query cache hit 94.2% (projected savings $1.2M/yr)'
+        ]
       },
       {
-        threshold: 0.3,
+        id: 'zero-downtime-cdc',
+        subtitle: 'SYSTEM ARCHITECTURE 02 // REAL-TIME CDC STREAMING PIPELINE',
+        title: 'Zero-Downtime Source System Migration (Debezium + Kafka + Spark)',
+        pid: 'PID 7718 · CDC-STREAMER',
+        simStats: {
+          normal: { throughput: '5M+ events/hour', latency: '< 3.0 sec end-to-end', workers: 'Kafka + K8s Executors', sla: 'Zero Source Table Locks' },
+          peak:   { throughput: '14,200 row-changes/sec', latency: '2.7 sec end-to-end', workers: 'Auto-Scaled Spark Streaming', sla: '100% Ordered Delivery' },
+          audit:  { throughput: 'Schema Evolution Live', latency: '0 Dropped Messages', workers: 'WAL Log Offset Checkpointed', sla: 'HIPAA Audit Trail Active' }
+        },
+        nodes: [
+          {
+            id: 'postgres-wal',
+            x: 34, y: 140, w: 185, h: 130,
+            code: 'SOURCE // 01',
+            title: 'PostgreSQL WAL Logs',
+            sub1: 'Row-Level Change Capture',
+            sub2: 'Zero Lock Contention',
+            accent: '#D4AF37',
+            latency: '0 ms Lock Impact',
+            throughput: 'Transactional OLTP',
+            stack: ['PostgreSQL', 'Logical Replication', 'WAL'],
+            detail: 'Replaced brittle nightly full-load ETL jobs causing table lock contention and stale data by reading PostgreSQL write-ahead logs with zero impact on production source availability.'
+          },
+          {
+            id: 'debezium-connect',
+            x: 285, y: 140, w: 195, h: 130,
+            code: 'CAPTURE // 02',
+            title: 'Debezium & Kafka Connect',
+            sub1: 'Distributed Event Bus &',
+            sub2: 'Schema Evolution Registry',
+            accent: '#38BDF8',
+            latency: '45 ms Broker Commit',
+            throughput: '5M+ Events / Hour',
+            stack: ['Debezium', 'Kafka Connect', 'Apache Kafka'],
+            detail: 'Streams row-level inserts, updates, and deletes into partitioned Kafka topics with built-in schema evolution handling packaged as a reusable enterprise framework.'
+          },
+          {
+            id: 'spark-streaming',
+            x: 550, y: 140, w: 205, h: 130,
+            code: 'COMPUTE // 03',
+            title: 'Spark Structured Streaming',
+            sub1: 'Stateful Deduplication &',
+            sub2: 'Kubernetes Micro-Clusters',
+            accent: '#F3D98B',
+            latency: '1.9 sec Micro-Batch',
+            throughput: '10m → <1m / <3s SLA',
+            stack: ['Spark Structured Streaming', 'Kubernetes', 'Python'],
+            detail: 'Processes streaming CDC events on Kubernetes with exactly-once checkpointing, cutting legacy 10-minute batch/streaming delays down to sub-second/sub-3-second latency.'
+          },
+          {
+            id: 'snowflake-merge',
+            x: 825, y: 140, w: 255, h: 130,
+            code: 'TARGET // 04',
+            title: 'Snowflake Real-Time Merge',
+            sub1: 'Live Fraud Detection &',
+            sub2: 'Clinical / Risk Alerting',
+            accent: '#34D399',
+            latency: '< 3.0 sec Total SLA',
+            throughput: '99% Regulated Uptime',
+            stack: ['Snowflake', 'Streams & Tasks', 'Real-Time Alerting'],
+            detail: 'Applies idempotent upserts into Snowflake target tables in near-real time, powering live fraud detection, utilization monitoring, and real-time clinical alerting.'
+          }
+        ],
+        conduits: [
+          { from: [219, 205], to: [285, 205], color: '#D4AF37' },
+          { from: [480, 205], to: [550, 205], color: '#38BDF8' },
+          { from: [755, 205], to: [825, 205], color: '#34D399' }
+        ],
+        logs: [
+          '[CDC] debezium-pg-connector: reading LSN 4A/9102F40 (source lock_wait=0ms)',
+          '[KAFKA] topic=clinical.claims.cdc partition=12 offset=98,412,009 lag=0',
+          '[SCHEMA] registry: backward-compatible column addition evolved automatically',
+          '[SPARK] structured-stream: watermark processed 1,420 events/sec in 1.4s',
+          '[SNOWFLAKE] merge-task: 100% row parity verified against OLTP source'
+        ]
       },
-    );
+      {
+        id: 'finops-pipeline',
+        subtitle: 'SYSTEM ARCHITECTURE 03 // MULTI-CLOUD FINOPS TELEMETRY ENGINE',
+        title: 'Unified Cost Intelligence Pipeline (AWS + GCP → BigQuery + Grafana)',
+        pid: 'PID 5521 · FINOPS-DAEMON',
+        simStats: {
+          normal: { throughput: 'Daily Multi-Cloud Sync', latency: 'Automated 06:00 UTC', workers: 'Airflow + dbt Models', sla: '100% Spend Attribution' },
+          peak:   { throughput: 'Granular Service/Env Rollup', latency: 'Sub-Second BI Queries', workers: 'Partitioned BigQuery', sla: '20%+ Waste Eliminated' },
+          audit:  { throughput: 'Tag Compliance 99.4%', latency: 'Anomaly Alerts Armed', workers: 'Python Cost Collectors', sla: 'Zero End-of-Month Surprises' }
+        },
+        nodes: [
+          {
+            id: 'cloud-apis',
+            x: 34, y: 140, w: 195, h: 130,
+            code: 'COLLECT // 01',
+            title: 'AWS & GCP Billing APIs',
+            sub1: 'AWS Cost Explorer &',
+            sub2: 'GCP Cloud Billing Export',
+            accent: '#D4AF37',
+            latency: 'Daily Automated Pull',
+            throughput: 'Multi-Account / Project',
+            stack: ['Python', 'AWS Cost Explorer API', 'GCP Billing API'],
+            detail: 'Ingests granular line-item usage and amortized spend metrics across AWS and GCP accounts daily, replacing error-prone manual monthly spreadsheets.'
+          },
+          {
+            id: 'airflow-bq',
+            x: 305, y: 140, w: 205, h: 130,
+            code: 'ORCHESTRATE // 02',
+            title: 'Airflow & BigQuery Store',
+            sub1: 'Idempotent Ingestion &',
+            sub2: 'Partitioned Cost Warehouse',
+            accent: '#38BDF8',
+            latency: '99% Job SLA',
+            throughput: 'Historical Trend Retention',
+            stack: ['Apache Airflow', 'BigQuery', 'SQL'],
+            detail: 'Orchestrates daily extraction, currency normalization, and partitioned loading into Google BigQuery with automated retry policies and SLA alerting.'
+          },
+          {
+            id: 'dbt-finops',
+            x: 585, y: 140, w: 205, h: 130,
+            code: 'MODEL // 03',
+            title: 'dbt Attribution Models',
+            sub1: 'Cost by Team, Service &',
+            sub2: 'Environment (Prod/Dev)',
+            accent: '#F3D98B',
+            latency: 'Automated dbt Tests',
+            throughput: 'Idle Compute Detection',
+            stack: ['dbt', 'Dimensional Modeling', 'Data Contracts'],
+            detail: 'Models raw cloud billing telemetry by engineering team, microservice, and environment—pinpointing idle clusters, unattached volumes, and oversized warehouses.'
+          },
+          {
+            id: 'grafana-finops',
+            x: 865, y: 140, w: 215, h: 130,
+            code: 'VISUALIZE // 04',
+            title: 'Grafana FinOps Dashboards',
+            sub1: 'Engineering & Finance',
+            sub2: 'Daily Budget Burn Visibility',
+            accent: '#34D399',
+            latency: 'Updated Daily',
+            throughput: '20%+ Compute Reduction',
+            stack: ['Grafana', 'KPI Modeling', 'Budget Alerts'],
+            detail: 'Equips engineering and finance stakeholders with daily interactive Grafana dashboards to eliminate compute waste before end-of-month budget overruns occur.'
+          }
+        ],
+        conduits: [
+          { from: [229, 205], to: [305, 205], color: '#D4AF37' },
+          { from: [510, 205], to: [585, 205], color: '#38BDF8' },
+          { from: [790, 205], to: [865, 205], color: '#34D399' }
+        ],
+        logs: [
+          '[FINOPS] aws-cost-explorer: ingested 142,800 resource usage records (status=200)',
+          '[FINOPS] gcp-billing-export: synced BigQuery + Dataflow SKU line items',
+          '[DBT] model.finops_team_attribution: 18/18 uniqueness & not_null tests OK',
+          '[ALERT] idle-compute-detector: flagged 3 unutilized dev clusters (-$18.4K/mo)',
+          '[GRAFANA] dashboard-refresh: engineering & finance burn views updated'
+        ]
+      },
+      {
+        id: 'multi-tenant-governance',
+        subtitle: 'SYSTEM ARCHITECTURE 04 // SELF-SERVICE ZERO-TRUST GOVERNANCE LAYER',
+        title: 'Multi-Tenant Data Governance Layer (HIPAA & GDPR Compliance)',
+        pid: 'PID 9104 · GOV-ENFORCER',
+        simStats: {
+          normal: { throughput: '300+ Self-Service Users', latency: 'Days → Hours Provisioning', workers: 'Terraform + Lake Formation', sla: '100% HIPAA / GDPR Audit' },
+          peak:   { throughput: '15+ Regulated Domains', latency: 'Sub-Millisecond Policy Eval', workers: 'Apache Ranger + dbt RLS', sla: 'Zero Unauthorized PHI Reads' },
+          audit:  { throughput: '60% Less Audit Effort', latency: '3 Weeks → 3 Days Prep', workers: 'Immutable Audit Logging', sla: 'Full Column/Row Lineage' }
+        },
+        nodes: [
+          {
+            id: 'access-workflow',
+            x: 34, y: 140, w: 195, h: 130,
+            code: 'REQUEST // 01',
+            title: 'Self-Service Access Flow',
+            sub1: 'Domain-Scoped Requests',
+            sub2: 'Zero Ticket Bottlenecks',
+            accent: '#D4AF37',
+            latency: 'Days → Hours',
+            throughput: '300+ Domain Users',
+            stack: ['Python', 'GitOps Workflow', 'RBAC / ABAC'],
+            detail: 'Allows domain teams across healthcare and FinTech to request scoped dataset access through a deterministic workflow without waiting on manual data engineering tickets.'
+          },
+          {
+            id: 'terraform-provision',
+            x: 305, y: 140, w: 205, h: 130,
+            code: 'PROVISION // 02',
+            title: 'Terraform & Lake Formation',
+            sub1: 'Automated IAM Roles &',
+            sub2: 'Apache Ranger Policies',
+            accent: '#38BDF8',
+            latency: 'Declarative IaC',
+            throughput: 'Zero Privilege Creep',
+            stack: ['Terraform', 'AWS Lake Formation', 'Apache Ranger'],
+            detail: 'Automates role provisioning, catalog permissions, and fine-grained column/table access policies via Terraform, AWS Lake Formation, and Apache Ranger.'
+          },
+          {
+            id: 'dbt-rls',
+            x: 585, y: 140, w: 205, h: 130,
+            code: 'ENFORCE // 03',
+            title: 'dbt Row-Level Security',
+            sub1: 'Dynamic PHI Masking &',
+            sub2: 'Tenant Isolation Policies',
+            accent: '#F3D98B',
+            latency: 'Query-Time Enforcement',
+            throughput: 'HIPAA · GDPR · CCPA',
+            stack: ['Snowflake', 'dbt RLS', 'Dynamic Data Masking'],
+            detail: 'Enforces tenant-level row-level security and dynamic PII/PHI masking directly at the Snowflake and dbt model layers so sensitive attributes remain protected.'
+          },
+          {
+            id: 'audit-compliance',
+            x: 865, y: 140, w: 215, h: 130,
+            code: 'VERIFY // 04',
+            title: 'Automated Audit & Lineage',
+            sub1: '3 Weeks → 3 Days Prep',
+            sub2: '-60% Compliance Effort',
+            accent: '#34D399',
+            latency: 'Continuous Immutable Log',
+            throughput: '100% Audit Readiness',
+            stack: ['Audit Logging', 'OpenLineage', 'Unity Catalog'],
+            detail: 'Captures end-to-end lineage and immutable access logs across regulated datasets—reducing manual compliance review effort by 60% and cutting audit prep from 3 weeks to 3 days.'
+          }
+        ],
+        conduits: [
+          { from: [229, 205], to: [305, 205], color: '#D4AF37' },
+          { from: [510, 205], to: [585, 205], color: '#38BDF8' },
+          { from: [790, 205], to: [865, 205], color: '#34D399' }
+        ],
+        logs: [
+          '[IAM] access-request #841: approved domain=clinical_outcomes role=ANALYST_PHI_MASKED',
+          '[TF] terraform-cloud: provisioned Snowflake RBAC grants + Lake Formation tags',
+          '[RANGER] policy-sync: updated column masking for ICD-10 / CPT restricted tables',
+          '[DBT-RLS] row-access-policy: enforced tenant_id isolation on 64 gold models',
+          '[AUDIT] hipaa-trail: immutable access digest archived (prep_time=-85%)'
+        ]
+      },
+      {
+        id: 'unified-cdc-finops-governance',
+        subtitle: 'SYSTEM ARCHITECTURE 05 // END-TO-END CDC, FINOPS & MULTI-TENANT GOVERNANCE FABRIC',
+        title: 'Unified CDC Streaming, Multi-Cloud FinOps & Zero-Trust Governance',
+        pid: 'PID 9940 · UNIFIED-FABRIC',
+        simStats: {
+          normal: { throughput: 'Zero-Lock CDC + Daily FinOps', latency: '< 3.0s Stream · Hours Provisioning', workers: 'Debezium · Airflow · Terraform', sla: 'HIPAA / GDPR · 100% Attribution' },
+          peak:   { throughput: 'Multi-Source Reusable CDC', latency: 'Schema Evolution + Auto-Scale K8s', workers: 'Spark + BigQuery + Snowflake', sla: 'Zero Waste · Zero Lock Contention' },
+          audit:  { throughput: 'dbt RLS + Ranger + Lake Formation', latency: 'Days → Hours Self-Service', workers: 'Automated Policy & Cost Checks', sla: 'Full PHI & Spend Auditability' }
+        },
+        nodes: [
+          {
+            id: 'cdc-stream-core',
+            x: 34, y: 50, w: 225, h: 120,
+            code: 'PLANE 01 // STREAMING CDC',
+            title: 'Zero-Downtime CDC Bus',
+            sub1: 'PostgreSQL → Debezium & Kafka',
+            sub2: 'Spark Streaming on Kubernetes',
+            accent: '#38BDF8',
+            latency: 'Zero Source Table Locks',
+            throughput: 'Reusable Multi-Source Framework',
+            stack: ['Debezium', 'Kafka Connect', 'Spark Structured Streaming', 'PostgreSQL', 'Kubernetes'],
+            detail: 'Replaced brittle nightly full-load ETL jobs causing table lock contention and stale data with a reusable CDC streaming framework using Debezium, Kafka Connect, and Spark Structured Streaming on Kubernetes—streaming row-level changes into Snowflake with built-in schema evolution and zero source downtime.'
+          },
+          {
+            id: 'finops-intel-core',
+            x: 34, y: 250, w: 225, h: 120,
+            code: 'PLANE 02 // CLOUD FINOPS',
+            title: 'Unified Cost Intelligence',
+            sub1: 'AWS Cost Explorer + GCP Billing',
+            sub2: 'Airflow → BigQuery dbt → Grafana',
+            accent: '#F3D98B',
+            latency: 'Daily Automated Refresh',
+            throughput: 'Team / Service / Env Rollups',
+            stack: ['Python', 'AWS Cost Explorer API', 'GCP Billing API', 'Airflow', 'BigQuery', 'dbt', 'Grafana'],
+            detail: 'Replaced manual monthly billing spreadsheets with an automated Python & Airflow pipeline ingesting daily AWS and GCP spend into BigQuery, modeled by team, service, and environment in dbt, and surfaced in daily Grafana dashboards to eliminate idle compute waste and end-of-month surprises.'
+          },
+          {
+            id: 'snowflake-dbt-hub',
+            x: 365, y: 140, w: 245, h: 140,
+            code: 'CORE // REGULATED WAREHOUSE',
+            title: 'Snowflake & dbt RLS Core',
+            sub1: 'Near-Real-Time Merge &',
+            sub2: 'Model-Layer Row-Level Security',
+            accent: '#D4AF37',
+            latency: 'Near-Real-Time + RLS',
+            throughput: 'Healthcare & FinTech Domains',
+            stack: ['Snowflake', 'dbt', 'Schema Evolution', 'Row-Level Security'],
+            detail: 'Central regulated Snowflake warehouse receiving near-real-time CDC streams with automatic schema evolution while enforcing fine-grained row-level security directly inside the dbt transformation layer across sensitive healthcare and FinTech datasets.'
+          },
+          {
+            id: 'zero-trust-mesh',
+            x: 715, y: 140, w: 365, h: 140,
+            code: 'PLANE 03 // SELF-SERVICE GOVERNANCE',
+            title: 'Multi-Tenant Governance & Serving',
+            sub1: 'Terraform, Lake Formation, Ranger & RBAC',
+            sub2: 'Days → Hours Access · HIPAA & GDPR Compliant',
+            accent: '#34D399',
+            latency: 'Days → Hours Provisioning',
+            throughput: 'Zero-Ticket Self-Service + Grafana',
+            stack: ['Terraform', 'AWS Lake Formation', 'Apache Ranger', 'RBAC', 'Python', 'Grafana'],
+            detail: 'Self-service access workflow powered by Terraform, AWS Lake Formation, Apache Ranger, and RBAC—allowing domain teams to request and receive scoped access without engineering bottlenecks, cutting provisioning from days to hours while tightening HIPAA/GDPR compliance and powering Grafana FinOps & operational analytics.'
+          }
+        ],
+        conduits: [
+          { from: [259, 110], to: [365, 185], color: '#38BDF8' },
+          { from: [259, 310], to: [365, 235], color: '#F3D98B' },
+          { from: [610, 210], to: [715, 210], color: '#34D399' }
+        ],
+        logs: [
+          '[CDC] debezium-kafka-connect: streamed PostgreSQL row changes into Snowflake (locks=0)',
+          '[SCHEMA] spark-structured-streaming: evolved new column across reusable CDC template',
+          '[FINOPS] airflow-bq-dbt: daily AWS + GCP spend modeled by team/service/env -> Grafana',
+          '[GOV] terraform-lakeformation: provisioned scoped RBAC + Ranger policies in 18 mins',
+          '[RLS] dbt-security-layer: enforced HIPAA & GDPR row-level isolation across tenants'
+        ]
+      }
+    ];
 
-    animatedElements.forEach((element) => {
-      observer.observe(element);
-    });
+    let currentArchIndex = 0;
+    let currentNodeIndex = 0;
+    let currentLoadMode = 'normal';
+    let logInterval = null;
+    let logTick = 0;
+
+    function switchArchitecture(index) {
+      currentArchIndex = index;
+      currentNodeIndex = 0;
+
+      document.querySelectorAll('.bp-tab').forEach((tab, idx) => {
+        const badge = tab.querySelector('span');
+        if (idx === index) {
+          tab.className = 'bp-tab text-left p-5 rounded-2xl bg-vellum border-2 border-gold shadow-goldHalo transition-all focus:outline-none';
+          badge.textContent = `BLUEPRINT 0${idx + 1} · LIVE`;
+          badge.className = 'font-mono text-[10px] uppercase tracking-[0.18em] text-goldLight';
+        } else {
+          tab.className = 'bp-tab text-left p-5 rounded-2xl bg-blueprint/90 border border-gold/25 hover:border-gold/60 transition-all focus:outline-none';
+          badge.textContent = `BLUEPRINT 0${idx + 1}`;
+          badge.className = 'font-mono text-[10px] uppercase tracking-[0.18em] text-slateText';
+        }
+      });
+
+      updateSimulationStats();
+      renderArchitectureSVG();
+      renderNodeInspector();
+      resetDaemonLogs();
+    }
+
+    function setTrafficMode(mode) {
+      currentLoadMode = mode;
+      document.querySelectorAll('.load-btn').forEach((btn) => {
+        if (btn.dataset.loadMode === mode) {
+          btn.className = 'load-btn px-3 py-1.5 rounded-lg font-mono text-xs bg-gold text-obsidian font-semibold transition-all';
+        } else {
+          btn.className = 'load-btn px-3 py-1.5 rounded-lg font-mono text-xs text-slateText hover:text-ivory transition-all';
+        }
+      });
+
+      updateSimulationStats();
+      renderArchitectureSVG();
+      appendDaemonLog(`[MODE] switched engine workload profile -> ${mode.toUpperCase()}`);
+    }
+
+    function updateSimulationStats() {
+      const arch = ARCHITECTURES[currentArchIndex];
+      const stats = arch.simStats[currentLoadMode];
+      document.getElementById('bp-subtitle').textContent = arch.subtitle;
+      document.getElementById('bp-title').textContent = arch.title;
+      document.getElementById('daemon-pid').textContent = `${arch.pid} · RUNNING`;
+      document.getElementById('sim-throughput').textContent = stats.throughput;
+      document.getElementById('sim-latency').textContent = stats.latency;
+      document.getElementById('sim-workers').textContent = stats.workers;
+      document.getElementById('sim-sla').textContent = stats.sla;
+    }
+
+    function selectArchNode(nodeIdx) {
+      currentNodeIndex = nodeIdx;
+      const arch = ARCHITECTURES[currentArchIndex];
+      const node = arch.nodes[nodeIdx];
+      renderArchitectureSVG();
+      renderNodeInspector();
+      appendDaemonLog(`[INSPECT] attached telemetry probe to node.code({node.title})`);
+    }
+
+    function renderArchitectureSVG() {
+      const svg = document.getElementById('architecture-svg');
+      if (!svg) return;
+
+      const arch = ARCHITECTURES[currentArchIndex];
+      const packetDuration = currentLoadMode === 'peak' ? '1.05s' : currentLoadMode === 'audit' ? '1.6s' : '2.0s';
+      const conduitClass = currentLoadMode === 'peak' ? 'svg-conduit-fast' : 'svg-conduit';
+
+      let defsMarkup = `
+        <defs>
+          <filter id="packetGlow" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="3.5" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <pattern id="svgSubGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(212, 175, 55, 0.06)" stroke-width="1" />
+          </pattern>
+        </defs>
+        <rect x="0" y="0" width="1120" height="420" fill="url(#svgSubGrid)" />
+        <rect x="12" y="12" width="1096" height="396" rx="16" fill="none" stroke="rgba(212, 175, 55, 0.2)" stroke-width="1" />
+      `;
+
+      let conduitsMarkup = '';
+      arch.conduits.forEach((c, idx) => {
+        const [x1, y1] = c.from;
+        const [x2, y2] = c.to;
+        const midX = (x1 + x2) / 2;
+        const pathD = x1 === x2
+          ? `M ${x1} ${y1} L ${x2} ${y2}`
+          : `M ${x1} ${y1} C ${midX} ${y1}, ${midX} ${y2}, ${x2} ${y2}`;
+
+        const packetColor = currentLoadMode === 'audit' ? '#34D399' : c.color;
+        const delaySec = (idx * 0.26).toFixed(2) + 's';
+
+        conduitsMarkup += `
+          <path d="pathD"fill="none"stroke="{c.color}" stroke-opacity="0.2" stroke-width="3" />
+          <path d="pathD"fill="none"stroke="{c.color}" stroke-opacity="0.78" stroke-width="1.6" class="${conduitClass}" />
+          <circle r="4" fill="${packetColor}" filter="url(#packetGlow)">
+            <animateMotion dur="packetDuration"begin="{delaySec}" repeatCount="indefinite" path="${pathD}" />
+          </circle>
+        `;
+      });
+
+      let nodesMarkup = '';
+      arch.nodes.forEach((node, idx) => {
+        const isSelected = idx === currentNodeIndex;
+        const strokeColor = isSelected ? '#F3D98B' : node.accent;
+        const strokeWidth = isSelected ? '2.2' : '1.3';
+        const fillBg = isSelected ? '#192235' : '#101522';
+        const cx = node.x + node.w / 2;
+
+        nodesMarkup += `
+          <g class="svg-node-group" onclick="selectArchNode(${idx})" role="button" tabindex="0" aria-label="Inspect ${node.title}">
+            ${isSelected ? `<rect x="${node.x - 5}" y="node.y-5"width="{node.w + 10}" height="${node.h + 10}" rx="18" fill="none" stroke="#F3D98B" stroke-opacity="0.38" stroke-width="1.5" />` : ''}
+            <rect class="node-box" x="node.x"y="{node.y}" width="node.w"height="{node.h}" rx="14"
+                  fill="fillBg"stroke="{strokeColor}" stroke-width="${strokeWidth}" />
+
+            <text x="node.x+14"y="{node.y + 23}" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600" fill="${node.accent}">
+              ${node.code}
+            </text>
+            <circle cx="node.x+node.w-16"cy="{node.y + 19}" r="3.5" fill="${isSelected ? '#34D399' : node.accent}" />
+
+            <text x="cx"y="{node.y + 49}" font-family="Cormorant Garamond, serif" font-size="18.5" font-weight="700" fill="#F5F3EE" text-anchor="middle">
+              ${node.title}
+            </text>
+
+            <text x="cx"y="{node.y + 70}" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" fill="#94A3B8" text-anchor="middle">
+              ${node.sub1}
+            </text>
+            <text x="cx"y="{node.y + 86}" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" fill="#94A3B8" text-anchor="middle">
+              ${node.sub2}
+            </text>
+
+            <text x="cx"y="{node.y + node.h - 11}" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#F3D98B" text-anchor="middle">
+              ${node.latency}
+            </text>
+          </g>
+        `;
+      });
+
+      svg.innerHTML = defsMarkup + conduitsMarkup + nodesMarkup;
+    }
+
+    function renderNodeInspector() {
+      const panel = document.getElementById('node-inspector-panel');
+      if (!panel) return;
+
+      const arch = ARCHITECTURES[currentArchIndex];
+      const node = arch.nodes[currentNodeIndex];
+
+      panel.innerHTML = `
+        <div>
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-white/10">
+            <div class="flex items-center gap-2.5">
+              <span class="font-mono text-xs px-2.5 py-0.5 rounded bg-gold/15 text-goldLight border border-gold/35">${node.code}</span>
+              <span class="font-mono text-[11px] text-slateText uppercase tracking-wider">ACTIVE STAGE SPECIFICATION</span>
+            </div>
+            <span class="font-mono text-xs text-cyanPulse">${node.latency}</span>
+          </div>
+
+          <h5 class="font-serif text-2xl sm:text-3xl font-semibold text-ivory mt-3">
+            ${node.title} <span class="italic font-normal text-goldLight">— ${node.sub1} ${node.sub2}</span>
+          </h5>
+
+          <p class="text-sm sm:text-base text-ivory/90 leading-relaxed mt-3">
+            ${node.detail}
+          </p>
+        </div>
+
+        <div class="mt-5 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex flex-wrap gap-2">
+            ${node.stack.map(tech => `<span class="font-mono text-[11px] px-2.5 py-1 rounded-lg bg-obsidian border border-gold/35 text-goldLight">${tech}</span>`).join('')}
+          </div>
+          <span class="font-mono text-xs text-emeraldPulse font-semibold">${node.throughput}</span>
+        </div>
+      `;
+    }
+
+    /**
+- 2. LIVE SYNCHRONIZED BACKEND DAEMON STREAM CONSOLE
+     */
+    function getFormattedTimestamp() {
+      const now = new Date();
+      return now.toTimeString().split(' ')[0] + '.' + String(now.getMilliseconds()).padStart(3, '0');
+    }
+
+    function appendDaemonLog(line) {
+      const container = document.getElementById('engine-log-stream');
+      if (!container) return;
+
+      const row = document.createElement('div');
+      row.className = 'text-ivory/85 border-l-2 border-gold/40 pl-2.5 py-0.5';
+      row.innerHTML = `<span class="text-slateText mr-1.5">getFormattedTimestamp()</span><span>{line}</span>`;
+      container.appendChild(row);
+
+      while (container.children.length > 6) {
+        container.removeChild(container.firstChild);
+      }
+    }
+
+    function resetDaemonLogs() {
+      const container = document.getElementById('engine-log-stream');
+      if (!container) return;
+      container.innerHTML = '';
+      logTick = 0;
+
+      const arch = ARCHITECTURES[currentArchIndex];
+      arch.logs.slice(0, 4).forEach((entry) => appendDaemonLog(entry));
+    }
+
+    function startDaemonTicker() {
+      resetDaemonLogs();
+      if (logInterval) clearInterval(logInterval);
+      logInterval = setInterval(() => {
+        const arch = ARCHITECTURES[currentArchIndex];
+        const nextLine = arch.logs[logTick % arch.logs.length];
+        logTick++;
+        appendDaemonLog(nextLine);
+      }, 2800);
+    }
+
+    // Boot Interactive Engine
+    renderArchitectureSVG();
+    renderNodeInspector();
+    startDaemonTicker();
+
+    /**
+- 3. SCROLL CHOREOGRAPHY, KPI COUNTERS & TIMELINE PROGRESS
+     */
+    (function initScrollAnimations() {
+      const revealNodes = document.querySelectorAll('.reveal-node');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+      revealNodes.forEach((el) => revealObserver.observe(el));
+
+      let kpiAnimated = false;
+      const kpiStrip = document.getElementById('kpi-strip');
+      if (kpiStrip) {
+        const kpiObserver = new IntersectionObserver((entries) => {
+          if (entries[0].isIntersecting && !kpiAnimated) {
+            kpiAnimated = true;
+            document.querySelectorAll('.kpi-num').forEach((el) => {
+              const target = parseFloat(el.dataset.target);
+              const decimals = parseInt(el.dataset.decimals || '0', 10);
+              const prefix = el.dataset.prefix || '';
+              const suffix = el.dataset.suffix || '';
+              const duration = 1600;
+              const start = performance.now();
+
+              function step(now) {
+                const progress = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 4);
+                el.textContent = `prefix{(target * eased).toFixed(decimals)}${suffix}`;
+                if (progress < 1) requestAnimationFrame(step);
+              }
+              requestAnimationFrame(step);
+            });
+          }
+        }, { threshold: 0.25 });
+        kpiObserver.observe(kpiStrip);
+      }
+
+      const topNav = document.getElementById('top-nav');
+      const chronicleTrack = document.getElementById('chronicle-track');
+      const chronicleFill = document.getElementById('chronicle-fill');
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 30) {
+          topNav.classList.add('bg-obsidian/90', 'backdrop-blur-xl', 'border-gold/20');
+        } else {
+          topNav.classList.remove('bg-obsidian/90', 'backdrop-blur-xl', 'border-gold/20');
+        }
+
+        if (chronicleTrack && chronicleFill) {
+          const rect = chronicleTrack.getBoundingClientRect();
+          const scrolled = Math.min(Math.max(window.innerHeight * 0.65 - rect.top, 0), rect.height);
+          chronicleFill.style.height = `${(scrolled / rect.height) * 100}%`;
+        }
+      }, { passive: true });
+    })();
+
+    /**
+- 4. CAREER CHRONICLE & TECHNICAL MATRIX FILTERING
+     */
+    (function initDomainFilters() {
+      const roleBtns = document.querySelectorAll('.role-filter-btn');
+      const bullets = document.querySelectorAll('.chronicle-bullet');
+
+      roleBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          roleBtns.forEach((b) => {
+            b.className = 'role-filter-btn px-4 py-2 rounded-xl font-mono text-xs uppercase tracking-wider bg-vellum border border-white/10 text-slateText hover:text-ivory transition-all';
+          });
+          btn.className = 'role-filter-btn px-4 py-2 rounded-xl font-mono text-xs uppercase tracking-wider bg-gold text-obsidian font-semibold transition-all';
+
+          const filter = btn.dataset.roleFilter;
+          bullets.forEach((li) => {
+            const tags = li.dataset.tags || '';
+            li.style.display = (filter === 'all' || tags.includes(filter)) ? 'flex' : 'none';
+          });
+        });
+      });
+
+      const matrixBtns = document.querySelectorAll('.matrix-btn');
+      const matrixCards = document.querySelectorAll('.matrix-card');
+
+      matrixBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          matrixBtns.forEach((b) => {
+            b.className = 'matrix-btn px-4 py-2 rounded-xl font-mono text-xs uppercase tracking-wider bg-vellum border border-white/10 text-slateText hover:text-ivory transition-all';
+          });
+          btn.className = 'matrix-btn px-4 py-2 rounded-xl font-mono text-xs uppercase tracking-wider bg-gold text-obsidian font-semibold transition-all';
+
+          const filter = btn.dataset.matrixFilter;
+          matrixCards.forEach((card) => {
+            card.style.display = (filter === 'all' || card.dataset.matrixCat === filter) ? 'block' : 'none';
+          });
+        });
+      });
+    })();
+
+    /**
+- 5. MOBILE MENU, CLIPBOARD COPY & CORRESPONDENCE DISPATCH
+     */
+    (function initUIControls() {
+      const toggle = document.getElementById('mobile-toggle');
+      const drawer = document.getElementById('mobile-drawer');
+      const burger = document.getElementById('icon-burger');
+      const close = document.getElementById('icon-close');
+
+      if (toggle && drawer) {
+        toggle.addEventListener('click', () => {
+          const isHidden = drawer.classList.toggle('hidden');
+          burger.classList.toggle('hidden', !isHidden);
+          close.classList.toggle('hidden', isHidden);
+        });
+
+        document.querySelectorAll('.mobile-link').forEach((link) => {
+          link.addEventListener('click', () => {
+            drawer.classList.add('hidden');
+            burger.classList.remove('hidden');
+            close.classList.add('hidden');
+          });
+        });
+      }
+
+      const form = document.getElementById('dispatch-form');
+      const success = document.getElementById('dispatch-success');
+      const mailto = document.getElementById('dispatch-mailto');
+      const reset = document.getElementById('dispatch-reset');
+
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('f-name').value.trim();
+          const email = document.getElementById('f-email').value.trim();
+          const subject = document.getElementById('f-subject').value;
+          const body = document.getElementById('f-body').value.trim();
+
+          mailto.href = `mailto:khuram.s.data@gmail.com?subject=${encodeURIComponent(`[Architectural Inquiry] ${subject} — ${name}`)}&body=${encodeURIComponent(`From: name({email})\nScope: ${subject}\n\n${body}`)}`;
+          form.classList.add('hidden');
+          success.classList.remove('hidden');
+          triggerToast('Dispatch formatted for Khuram Sindhu');
+        });
+      }
+
+      if (reset) {
+        reset.addEventListener('click', () => {
+          form.reset();
+          success.classList.add('hidden');
+          form.classList.remove('hidden');
+        });
+      }
+    })();
+
+    function copyToClipboard(text, message) {
+      const el = document.createElement('textarea');
+      el.value = text;
+      el.style.position = 'fixed';
+      el.style.opacity = '0';
+      document.body.appendChild(el);
+      el.select();
+      try {
+        document.execCommand('copy');
+        triggerToast(message || 'Copied to clipboard');
+      } catch (e) {
+        triggerToast(text);
+      }
+      document.body.removeChild(el);
+    }
+
+    let toastTimer = null;
+    function triggerToast(message) {
+      const banner = document.getElementById('toast-banner');
+      const textEl = document.getElementById('toast-text');
+      if (!banner || !textEl) return;
+
+      textEl.textContent = message;
+      banner.classList.remove('translate-y-24', 'opacity-0');
+      banner.classList.add('translate-y-0', 'opacity-100');
+
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        banner.classList.add('translate-y-24', 'opacity-0');
+        banner.classList.remove('translate-y-0', 'opacity-100');
+      }, 3000);
+    }
   </script>
+</body>
 </html>
+
